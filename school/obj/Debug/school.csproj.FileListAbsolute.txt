@@ -1,0 +1,9 @@
+E:\CIS 340\project\school\school\bin\Debug\school.exe.config
+E:\CIS 340\project\school\school\bin\Debug\school.exe
+E:\CIS 340\project\school\school\bin\Debug\school.pdb
+E:\CIS 340\project\school\school\obj\Debug\school.csprojResolveAssemblyReference.cache
+E:\CIS 340\project\school\school\obj\Debug\school.Form1.resources
+E:\CIS 340\project\school\school\obj\Debug\school.Properties.Resources.resources
+E:\CIS 340\project\school\school\obj\Debug\school.csproj.GenerateResource.Cache
+E:\CIS 340\project\school\school\obj\Debug\school.exe
+E:\CIS 340\project\school\school\obj\Debug\school.pdb
