@@ -8,8 +8,8 @@ namespace Model
 {
     public class Students
     {
-        private short _id;
-        private int _password;
+        private short? _id;
+        private int? _password;
         private string _firstname;
         private string _lastname;
         private string _type;
@@ -33,13 +33,13 @@ namespace Model
         }
 
         #region Properties
-        public short Sid
+        public short? Sid
         {
             get { return _id; }
             set { _id = value; }
         }
 
-        public int Password
+        public int? Password
         {
             get { return _password; }
             set { _password = value; }

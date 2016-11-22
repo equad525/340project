@@ -8,15 +8,17 @@ using System.Data.SqlClient;
 using System.Reflection;
 using System.Collections.ObjectModel;
 
-namespace StudentRDMS.Data
+namespace Data
 {
     public static class DataAccess
     {
         private static string _connectionString;
+        private static Stack<string> _errors;
 
         static DataAccess()
         {
             _connectionString = ConfigurationManager.ConnectionStrings["cis340"].ConnectionString;
+            _errors = new Stack<string>();
         }
 
         #region CRUD Methods
@@ -36,49 +38,56 @@ namespace StudentRDMS.Data
 
             using(SqlConnection conn = new SqlConnection(_connectionString))
             {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
+                try
                 {
-                    while (reader.Read())
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        object instance = Activator.CreateInstance(typeof(T));
-
-                        if (selectFields != null)
+                        while (reader.Read())
                         {
-                            foreach (string f in selectFields)
-                            {
-                                try
-                                {
-                                    PropertyInfo prop = type.GetProperty(f.Capitalize());
-                                    prop.SetValue(instance, reader[f.DeCapitalize()]);
-                                }
-                                catch(Exception e)
-                                {
+                            object instance = Activator.CreateInstance(typeof(T));
 
+                            if (selectFields != null)
+                            {
+                                foreach (string f in selectFields)
+                                {
+                                    try
+                                    {
+                                        PropertyInfo prop = type.GetProperty(f.Capitalize());
+                                        prop.SetValue(instance, reader[f.DeCapitalize()]);
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        PushError(e);
+                                    }
                                 }
                             }
-                        }
-                        else
-                        {
-                            PropertyInfo[] props = QueryBuilder.GetTypeProperties(type);
-                            foreach (PropertyInfo p in props)
+                            else
                             {
-                                try
+                                PropertyInfo[] props = QueryBuilder.GetTypeProperties(type);
+                                foreach (PropertyInfo p in props)
                                 {
-                                    p.SetValue(instance, reader[p.Name.DeCapitalize()]);
-                                }
-                                catch (Exception e)
-                                {
-                                    
+                                    try
+                                    {
+                                        p.SetValue(instance, reader[p.Name.DeCapitalize()]);
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        PushError(e);
+                                    }
                                 }
                             }
-                        }
 
-                        list.Add((T)instance);
+                            list.Add((T)instance);
+                        }
                     }
+                }
+                catch ( Exception e )
+                {
+                    PushError(e);
                 }
             }
 
@@ -90,12 +99,17 @@ namespace StudentRDMS.Data
         /// </summary>
         /// <typeparam name="T">Type of object being saved</typeparam>
         /// <param name="objToSave">The object with the values to be updated</param>
-        /// <param name="primaryKeyField">Specify the Primary Key so it doesn't accidentally update (at the moment, it's required)</param>
-        /// <param name="conditions">Conditions to filter rows to be updated (all rows will update if conditions are not specified!)</param>
-        /// <param name="updateFields">Specific fields to update (all fields will be updated if not specified)</param>
+        /// <param name="primaryKeyField">Specify the Primary Key so it doesn't accidentally update (still testing if this is required)</param>
+        /// <param name="conditions">Conditions to filter rows to be updated (all ROWS will update if conditions are not specified!)</param>
+        /// <param name="updateFields">Specific fields to update (all FIELDS will be updated if not specified)</param>
         /// <returns></returns>
         public static bool Update<T>(T objToSave, string primaryKeyField = null, IEnumerable<Condition> conditions = null, string[] updateFields = null)
         {
+            if(objToSave == null)
+            {
+                PushError("Non-Null Object must be passed into Update method");
+                return false;
+            }
             string query = QueryBuilder.BuildQuery<T>(QueryBuilder.QueryTypes.Update, conditions: conditions, updateObj: objToSave, primaryKeyField: primaryKeyField);
 
             return ExecuteSQLCommand(query);
@@ -110,6 +124,12 @@ namespace StudentRDMS.Data
         /// <returns></returns>
         public static bool Create<T>(T objToCreate, string primaryKeyField = null)
         {
+            if(objToCreate == null)
+            {
+                PushError("Non-Null Object must be passed into the Create method");
+                return false;
+            }
+
             string query = QueryBuilder.BuildQuery<T>(QueryBuilder.QueryTypes.Create, primaryKeyField: primaryKeyField, insertObj: objToCreate);
 
             return ExecuteSQLCommand(query);
@@ -138,8 +158,9 @@ namespace StudentRDMS.Data
                 conn.Open();
                 return true;
             }
-            catch
+            catch (Exception e)
             {
+                PushError(e);
                 return false;
             }
             finally
@@ -152,7 +173,7 @@ namespace StudentRDMS.Data
         /// Execute a custom Sql Command
         /// </summary>
         /// <param name="query">The query string to execute</param>
-        /// <returns></returns>
+        /// <returns>Returns a bool indicating failure/success. Does not return results from SELECT statements.</returns>
         public static bool ExecuteSQLCommand(string query)
         {
             try
@@ -166,6 +187,7 @@ namespace StudentRDMS.Data
             }
             catch (Exception e)
             {
+                PushError(e);
                 return false;
             }
 
@@ -181,9 +203,27 @@ namespace StudentRDMS.Data
         {
             return Char.ToUpperInvariant(str[0]) + str.Substring(1);
         }
+
+        public static void ClearErrors()
+        {
+            _errors.Clear();
+        }
+
+        private static void PushError(Exception e)
+        {
+            Errors.Push($"{e.Message} : {e.Source}");
+        }
+
+        private static void PushError(string msg)
+        {
+            Errors.Push(msg);
+        }
         #endregion
 
         #region Nested Classes
+        /// <summary>
+        /// Class Representing WHERE Condition for SQL
+        /// </summary>
         public class Condition
         {
             private string _left;
@@ -191,6 +231,13 @@ namespace StudentRDMS.Data
             private Operators _conditionOperator;
 
             public Condition() { }
+
+            /// <summary>
+            /// Class Representing WHERE Condition for SQL
+            /// </summary>
+            /// <param name="left">DB Column</param>
+            /// <param name="conditionOperator">Operator for comparing the Left and Right Field</param>
+            /// <param name="right">Value used to compare against the Left Field</param>
             public Condition(string left, Operators conditionOperator, string right)
             {
                 Left = left;
@@ -199,18 +246,27 @@ namespace StudentRDMS.Data
             }
 
             #region Props
+            /// <summary>
+            /// The Left field which will be the DB column to check
+            /// </summary>
             public string Left
             {
                 get { return _left; }
                 set { _left = value; }
             }
 
+            /// <summary>
+            /// The Right field which will be the value to compare the Left field against
+            /// </summary>
             public string Right
             {
                 get { return _right; }
                 set { _right = value; }
             }
 
+            /// <summary>
+            /// The operator which determines which type of check to perform between the Left & Right fields
+            /// </summary>
             public Operators ConditionOperator
             {
                 get { return _conditionOperator; }
@@ -221,6 +277,7 @@ namespace StudentRDMS.Data
             public enum Operators
             {
                 Equal,
+                NotEqual,
                 Greater,
                 Lesser,
                 GreaterEquals,
@@ -228,18 +285,31 @@ namespace StudentRDMS.Data
             }
         }
 
+        /// <summary>
+        /// Class representing a list of Conditions
+        /// </summary>
         public class ConditionList : Collection<Condition>
         {
             private Operators _operator;
 
             public ConditionList() { }
 
+            /// <summary>
+            /// Class representing a list of Conditions
+            /// </summary>
+            /// <param name="conditions">An Enumerable list of conditions</param>
+            /// <param name="op">The operator for the conditions ('AND', or 'OR')</param>
             public ConditionList(List<Condition> conditions, Operators op)
             {
                 Conditions = conditions;
                 Operator = op;
             }
 
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="op">The operator for the conditions ('AND', or 'OR')</param>
+            /// <param name="conditions">Conditions to add to the list (1 or more)</param>
             public ConditionList(Operators op, params Condition[] conditions)
             {
                 Operator = op;
@@ -283,6 +353,12 @@ namespace StudentRDMS.Data
             private Order _order;
 
             public OrderBy() { }
+
+            /// <summary>
+            /// Represents the Order By clause in SQL
+            /// </summary>
+            /// <param name="fields">Fields to order by</param>
+            /// <param name="order">Ascending or Descending order</param>
             public OrderBy(string[] fields, Order order = Order.Ascending)
             {
                 Fields = fields;
@@ -359,37 +435,33 @@ namespace StudentRDMS.Data
 
                 return orderClause.ToString();
             }
+
             private static string GetWHEREString(QueryTypes queryType, IEnumerable<Condition> conditions)
             {
                 StringBuilder whereClause = new StringBuilder();
                 int characterDelete = 5;
+                string op = "AND";
 
                 whereClause.Append("WHERE ");
 
                 if (typeof(ConditionList).IsAssignableFrom(conditions.GetType()))
                 {
                     ConditionList conditionList = (ConditionList)conditions;
-                    string op = GetConditionCollectionOperator(conditionList.Operator);
+                    op = GetConditionListOperator(conditionList.Operator);
 
                     if (op == "OR") characterDelete = 4;
-
-                    foreach (Condition c in conditions)
-                    {
-                        whereClause.Append($"{c.Left}{GetConditionOperator(c.ConditionOperator)}'{c.Right}' {op}\n");
-                    }
                 }
-                else
+
+                foreach (Condition condition in conditions)
                 {
-                    foreach (Condition c in conditions)
-                    {
-                        whereClause.Append($"{c.Left}{GetConditionOperator(c.ConditionOperator)}'{c.Right}' AND\n");
-                    }
+                    whereClause.Append($"{condition.Left}{GetConditionOperator(condition.ConditionOperator)}'{condition.Right}' {op}\n");
                 }
 
                 whereClause.Remove(whereClause.Length - characterDelete, characterDelete);
 
                 return whereClause.ToString();
             }
+
             private static string GetSETString(Type objectType, object updateObject, string[] updateFields = null, string primaryKeyField = null)
             {
                 StringBuilder setClause = new StringBuilder();
@@ -403,9 +475,7 @@ namespace StudentRDMS.Data
                         if (u == primaryKeyField)
                             continue;
                         PropertyInfo prop = objectType.GetProperty(u);
-                        object val = prop.GetValue(updateObject);
-                        string value = val.GetType() == typeof(string) ? $"'{val}'" : val.ToString();
-                        setClause.Append($"{u}={value},");
+                        setClause.Append($"{u}={GetQueryValue(prop, updateObject)},");
                     }
                 }
                 else
@@ -415,9 +485,7 @@ namespace StudentRDMS.Data
                     {
                         if (p.Name.DeCapitalize() == primaryKeyField)
                             continue;
-                        object val = p.GetValue(updateObject);
-                        string value = val.GetType() == typeof(string) ? $"'{val}'" : val.ToString();
-                        setClause.Append($"{p.Name.DeCapitalize()}={value},");
+                        setClause.Append($"{p.Name.DeCapitalize()}={GetQueryValue(p, updateObject)},");
                     }
                 }
 
@@ -425,6 +493,7 @@ namespace StudentRDMS.Data
 
                 return setClause.ToString();
             }
+
             private static string GetVALUESString(object insertObject, string primaryKeyField = null)
             {
                 StringBuilder insertClause = new StringBuilder();
@@ -438,9 +507,7 @@ namespace StudentRDMS.Data
                 {
                     if (p.Name.DeCapitalize() == primaryKeyField)
                         continue;
-                    object value = p.GetValue(insertObject);
-                    string valueToInsert = value.GetType() == typeof(string) ? $"'{value}'" : value.ToString();
-                    insertClause.Append($"{valueToInsert},");
+                    insertClause.Append($"{GetQueryValue(p, insertObject)},");
                 }
 
                 insertClause.Remove(insertClause.Length - 1, 1);
@@ -448,6 +515,7 @@ namespace StudentRDMS.Data
 
                 return insertClause.ToString();
             }
+
             private static string GetFROMString(QueryTypes queryType, Type type)
             {
                 string standardFrom = "FROM " + type.Name.ToLower();
@@ -465,6 +533,7 @@ namespace StudentRDMS.Data
                         return "";
                 }
             }
+
             private static string GetCRUDString(QueryTypes queryType, string[] selectFields = null)
             {
                 switch (queryType)
@@ -504,6 +573,8 @@ namespace StudentRDMS.Data
                 {
                     case Condition.Operators.Equal:
                         return "=";
+                    case Condition.Operators.NotEqual:
+                        return "!=";
                     case Condition.Operators.Greater:
                         return ">";
                     case Condition.Operators.Lesser:
@@ -517,7 +588,7 @@ namespace StudentRDMS.Data
                 }
             }
 
-            private static string GetConditionCollectionOperator(ConditionList.Operators op)
+            private static string GetConditionListOperator(ConditionList.Operators op)
             {
                 switch (op)
                 {
@@ -543,9 +614,37 @@ namespace StudentRDMS.Data
                 }
             }
 
+            private static string GetQueryValue(PropertyInfo prop, object objectToInsert)
+            {
+                object value = prop.GetValue(objectToInsert);
+                return value.GetType() == typeof(string) ? $"'{value}'" : value.ToString();
+            }
+
+            /// <summary>
+            /// Return an enumerable Array of PropertyInfo of a given type. Gets only public properties.
+            /// </summary>
+            /// <param name="type"></param>
+            /// <returns>Array of PropertyInfo</returns>
             public static PropertyInfo[] GetTypeProperties(Type type)
             {
                 return type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            }
+        }
+        #endregion
+
+        #region Props
+        public static Stack<string> Errors
+        {
+            get { return _errors; }
+        }
+
+        public static string LastError
+        {
+            get
+            {
+                if (Errors.Count <= 0)
+                    return "";
+                return Errors.Peek();
             }
         }
         #endregion

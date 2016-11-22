@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="Authorizations.cs" />
     <Compile Include="Courses.cs" />
-    <Compile Include="DataAccess.cs" />
+    <Compile Include="Data\DataAccess.cs" />
     <Compile Include="DepartmentStaffHome.cs">
       <SubType>Form</SubType>
     </Compile>
