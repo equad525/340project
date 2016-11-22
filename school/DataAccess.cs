@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Reflection;
+using System.Collections.ObjectModel;
 
 namespace StudentRDMS.Data
 {
@@ -227,6 +228,55 @@ namespace StudentRDMS.Data
             }
         }
 
+        public class ConditionList : Collection<Condition>
+        {
+            private Operators _operator;
+
+            public ConditionList() { }
+
+            public ConditionList(List<Condition> conditions, Operators op)
+            {
+                Conditions = conditions;
+                Operator = op;
+            }
+
+            public ConditionList(Operators op, params Condition[] conditions)
+            {
+                Operator = op;
+                Conditions = conditions.ToList();
+            }
+
+            public enum Operators
+            {
+                And,
+                Or
+            }
+
+            public List<Condition> Conditions
+            {
+                get { return Items.ToList(); }
+                set
+                {
+                    Items.Clear();
+                    foreach(Condition c in value)
+                    {
+                        Items.Add(c);
+                    }
+                }
+            }
+
+            public Operators Operator
+            {
+                get { return _operator; }
+                set { _operator = value; }
+            }
+
+            public new Condition this[int index]
+            {
+                get { return Conditions[index]; }
+            }
+        }
+
         public class OrderBy
         {
             private string[] _fields;
@@ -312,15 +362,31 @@ namespace StudentRDMS.Data
             private static string GetWHEREString(QueryTypes queryType, IEnumerable<Condition> conditions)
             {
                 StringBuilder whereClause = new StringBuilder();
+                int characterDelete = 5;
 
                 whereClause.Append("WHERE ");
 
-                foreach(Condition c in conditions)
+                if (typeof(ConditionList).IsAssignableFrom(conditions.GetType()))
                 {
-                    whereClause.Append($"{c.Left}{GetOperatorFromOperatorEnum(c.ConditionOperator)}'{c.Right}' AND\n");
+                    ConditionList conditionList = (ConditionList)conditions;
+                    string op = GetConditionCollectionOperator(conditionList.Operator);
+
+                    if (op == "OR") characterDelete = 4;
+
+                    foreach (Condition c in conditions)
+                    {
+                        whereClause.Append($"{c.Left}{GetConditionOperator(c.ConditionOperator)}'{c.Right}' {op}\n");
+                    }
+                }
+                else
+                {
+                    foreach (Condition c in conditions)
+                    {
+                        whereClause.Append($"{c.Left}{GetConditionOperator(c.ConditionOperator)}'{c.Right}' AND\n");
+                    }
                 }
 
-                whereClause.Remove(whereClause.Length - 5, 5);
+                whereClause.Remove(whereClause.Length - characterDelete, characterDelete);
 
                 return whereClause.ToString();
             }
@@ -432,7 +498,7 @@ namespace StudentRDMS.Data
                 }
             }
 
-            private static string GetOperatorFromOperatorEnum(Condition.Operators op)
+            private static string GetConditionOperator(Condition.Operators op)
             {
                 switch (op)
                 {
@@ -450,6 +516,20 @@ namespace StudentRDMS.Data
                         return null;
                 }
             }
+
+            private static string GetConditionCollectionOperator(ConditionList.Operators op)
+            {
+                switch (op)
+                {
+                    case ConditionList.Operators.And:
+                        return "AND";
+                    case ConditionList.Operators.Or:
+                        return "OR";
+                    default:
+                        return null;
+                }
+            }
+
             private static string GetOrderByFromEnum(OrderBy.Order ob)
             {
                 switch (ob)
