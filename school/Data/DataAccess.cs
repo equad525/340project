@@ -194,6 +194,58 @@ namespace Data
             return true;
         }
 
+        public static string TryLogin(string password, string username)
+        {
+            string login = "Null";
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    SqlCommand com = new SqlCommand("SELECT sid, password  FROM students WHERE sid = @sid AND password = @password", conn);
+                    com.Parameters.AddWithValue("@sid", username);
+                    com.Parameters.AddWithValue("@password", password);
+                    conn.Open();
+                    SqlDataReader reader = com.ExecuteReader();
+
+
+                    if (reader != null && reader.Read())
+                    {
+                        login = "Student";
+
+                    }
+                    else if (reader == null)
+                    {
+                        reader.Close();
+                        com = new SqlCommand("SELECT tid, password, staffType FROM staff WHERE tid = @tid AND password = @password", conn);
+                        com.Parameters.AddWithValue("@tid", username);
+                        com.Parameters.AddWithValue("@password", password);
+                        conn.Open();
+                        reader = com.ExecuteReader();
+                        if (reader != null && reader.Read())
+                        {
+                            if (reader["staffType"].ToString().Equals("DEPARTMENT"))
+                                login = "DepartmentStaff";
+                            else
+                                login = "RegistrarStaff";
+                        }
+                    }
+                    else
+                    {
+                        login = "Null";
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            return login;
+        }
+
         public static string DeCapitalize(this String str)
         {
             return Char.ToLowerInvariant(str[0]) + str.Substring(1);

@@ -7,3 +7,6 @@ E:\CIS 340\project\school\school\obj\Debug\school.Properties.Resources.resources
 E:\CIS 340\project\school\school\obj\Debug\school.csproj.GenerateResource.Cache
 E:\CIS 340\project\school\school\obj\Debug\school.exe
 E:\CIS 340\project\school\school\obj\Debug\school.pdb
+C:\Users\tscha316\Source\Repos\340project\school\bin\Debug\school.exe.config
+C:\Users\tscha316\Source\Repos\340project\school\obj\Debug\school.exe
+C:\Users\tscha316\Source\Repos\340project\school\obj\Debug\school.pdb
