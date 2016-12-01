@@ -17,8 +17,19 @@ namespace Data
 
         static DataAccess()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["cis340"].ConnectionString;
-            _errors = new Stack<string>();
+            try
+            {
+                _errors = new Stack<string>();
+                _connectionString = ConfigurationManager.ConnectionStrings["cis340"].ConnectionString;
+            }
+            catch (NullReferenceException e)
+            {
+                PushError(e);
+            }
+            catch (Exception e)
+            {
+                PushError(e);
+            }
         }
 
         #region CRUD Methods
@@ -342,7 +353,7 @@ namespace Data
         /// </summary>
         public class ConditionList : Collection<Condition>
         {
-            private Operators _operator;
+            private ConditionalOperators _conditionalOperator;
 
             public ConditionList() { }
 
@@ -351,10 +362,10 @@ namespace Data
             /// </summary>
             /// <param name="conditions">An Enumerable list of conditions</param>
             /// <param name="op">The operator for the conditions ('AND', or 'OR')</param>
-            public ConditionList(List<Condition> conditions, Operators op)
+            public ConditionList(List<Condition> conditions, ConditionalOperators op)
             {
                 Conditions = conditions;
-                Operator = op;
+                ConditionalOperator = op;
             }
 
             /// <summary>
@@ -362,13 +373,13 @@ namespace Data
             /// </summary>
             /// <param name="op">The operator for the conditions ('AND', or 'OR')</param>
             /// <param name="conditions">Conditions to add to the list (1 or more)</param>
-            public ConditionList(Operators op, params Condition[] conditions)
+            public ConditionList(ConditionalOperators op, params Condition[] conditions)
             {
-                Operator = op;
+                ConditionalOperator = op;
                 Conditions = conditions.ToList();
             }
 
-            public enum Operators
+            public enum ConditionalOperators
             {
                 And,
                 Or
@@ -387,10 +398,10 @@ namespace Data
                 }
             }
 
-            public Operators Operator
+            public ConditionalOperators ConditionalOperator
             {
-                get { return _operator; }
-                set { _operator = value; }
+                get { return _conditionalOperator; }
+                set { _conditionalOperator = value; }
             }
 
             public new Condition this[int index]
@@ -499,7 +510,7 @@ namespace Data
                 if (typeof(ConditionList).IsAssignableFrom(conditions.GetType()))
                 {
                     ConditionList conditionList = (ConditionList)conditions;
-                    op = GetConditionListOperator(conditionList.Operator);
+                    op = GetConditionListOperator(conditionList.ConditionalOperator);
 
                     if (op == "OR") characterDelete = 4;
                 }
@@ -640,13 +651,13 @@ namespace Data
                 }
             }
 
-            private static string GetConditionListOperator(ConditionList.Operators op)
+            private static string GetConditionListOperator(ConditionList.ConditionalOperators op)
             {
                 switch (op)
                 {
-                    case ConditionList.Operators.And:
+                    case ConditionList.ConditionalOperators.And:
                         return "AND";
-                    case ConditionList.Operators.Or:
+                    case ConditionList.ConditionalOperators.Or:
                         return "OR";
                     default:
                         return null;
@@ -698,6 +709,11 @@ namespace Data
                     return "";
                 return Errors.Peek();
             }
+        }
+
+        public static bool HasErrors
+        {
+            get { return Errors.Count > 0; }
         }
         #endregion
     }
