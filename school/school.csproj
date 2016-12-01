@@ -69,6 +69,7 @@
     <Compile Include="frmLogIn.designer.cs">
       <DependentUpon>frmLogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main.cs" />
     <Compile Include="RegistrarEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +93,7 @@
     <Compile Include="Sections.cs" />
     <Compile Include="Staff.cs" />
     <Compile Include="Students.cs" />
+    <Compile Include="Validator.cs" />
     <Compile Include="VariableFeeRate.cs" />
     <EmbeddedResource Include="DepartmentStaffHome.resx">
       <DependentUpon>DepartmentStaffHome.cs</DependentUpon>

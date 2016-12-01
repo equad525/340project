@@ -1,4 +1,5 @@
 ﻿using CourseProject.PD;
+using school;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace CourseProject.UI
                 if (trylogin.Equals("RegistrarStaff"))
                 {
                     this.Hide();
-                    frmRegistrarStaffHome regStaffForm = new frmRegistrarStaffHome();
+                    RegistrarStaffHome regStaffForm = new RegistrarStaffHome();
                     regStaffForm.Show();
                     regStaffForm.Closed += (s, args) => this.Show();
                     clearLoginForm();
@@ -39,7 +40,7 @@ namespace CourseProject.UI
                 else if (trylogin.Equals("DepartmentStaff"))
                 {
                     this.Hide();
-                    frmDepartmentStaffHome deptStaffForm = new frmDepartmentStaffHome();
+                    DepartmentStaffHome deptStaffForm = new DepartmentStaffHome();
                     deptStaffForm.Show();
                     deptStaffForm.Closed += (s, args) => this.Show();
                     clearLoginForm();
@@ -47,7 +48,7 @@ namespace CourseProject.UI
                 else if (trylogin.Equals("Student"))
                 {
                     this.Hide();
-                    frmStudentHome studentForm = new frmStudentHome();
+                    StudentHome studentForm = new StudentHome();
                     studentForm.Show();
                     studentForm.Closed += (s, args) => this.Show();
                     clearLoginForm();
