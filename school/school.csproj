@@ -63,6 +63,12 @@
     </Compile>
     <Compile Include="Enrolls.cs" />
     <Compile Include="FixedFee.cs" />
+    <Compile Include="frmLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogIn.designer.cs">
+      <DependentUpon>frmLogIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     <Compile Include="VariableFeeRate.cs" />
     <EmbeddedResource Include="DepartmentStaffHome.resx">
       <DependentUpon>DepartmentStaffHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogIn.resx">
+      <DependentUpon>frmLogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarEdit.resx">
       <DependentUpon>RegistrarEdit.cs</DependentUpon>
