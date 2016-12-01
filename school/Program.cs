@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseProject.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace school
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StudentHome());
+            Application.Run(new frmLogIn());
         }
     }
 }
