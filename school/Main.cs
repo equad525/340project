@@ -11,7 +11,6 @@ namespace CourseProject.PD
     {
         public static string TryLogin(string password, string username)
         {
-            //test
             string trylogin = DataAccess.TryLogin(password,username);
             return trylogin;
         }
