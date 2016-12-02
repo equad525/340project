@@ -10,3 +10,10 @@ E:\CIS 340\project\school\school\obj\Debug\school.pdb
 C:\Users\tscha316\Source\Repos\340project\school\bin\Debug\school.exe.config
 C:\Users\tscha316\Source\Repos\340project\school\obj\Debug\school.exe
 C:\Users\tscha316\Source\Repos\340project\school\obj\Debug\school.pdb
+C:\Users\Ryan\Documents\UWSP\Classes\Fall 2016\CIS 340\CourseProject\340project\school\obj\Debug\school.DepartmentStaffHome.resources
+C:\Users\Ryan\Documents\UWSP\Classes\Fall 2016\CIS 340\CourseProject\340project\school\obj\Debug\CourseProject.UI.frmLogIn.resources
+C:\Users\Ryan\Documents\UWSP\Classes\Fall 2016\CIS 340\CourseProject\340project\school\obj\Debug\school.RegistrarEdit.resources
+C:\Users\Ryan\Documents\UWSP\Classes\Fall 2016\CIS 340\CourseProject\340project\school\obj\Debug\school.RegistrarStaffHome.resources
+C:\Users\Ryan\Documents\UWSP\Classes\Fall 2016\CIS 340\CourseProject\340project\school\obj\Debug\school.StudentHome.resources
+C:\Users\Ryan\Documents\UWSP\Classes\Fall 2016\CIS 340\CourseProject\340project\school\obj\Debug\school.Properties.Resources.resources
+C:\Users\Ryan\Documents\UWSP\Classes\Fall 2016\CIS 340\CourseProject\340project\school\obj\Debug\school.csproj.GenerateResource.Cache
