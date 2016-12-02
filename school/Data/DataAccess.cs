@@ -222,13 +222,15 @@ namespace Data
                     if (reader != null && reader.Read())
                     {
                         login = "Student";
+
                     }
-                    else if (!reader.HasRows)
+                    else if (reader == null)
                     {
                         reader.Close();
                         com = new SqlCommand("SELECT tid, password, staffType FROM staff WHERE tid = @tid AND password = @password", conn);
                         com.Parameters.AddWithValue("@tid", username);
                         com.Parameters.AddWithValue("@password", password);
+                        conn.Open();
                         reader = com.ExecuteReader();
                         if (reader != null && reader.Read())
                         {
