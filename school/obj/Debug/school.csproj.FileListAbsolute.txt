@@ -22,3 +22,13 @@ E:\CIS 340\project\school\340project_12-2-16\school\obj\Debug\school.Properties.
 E:\CIS 340\project\school\340project_12-2-16\school\obj\Debug\school.csproj.GenerateResource.Cache
 E:\CIS 340\project\school\340project_12-2-16\school\obj\Debug\school.exe
 E:\CIS 340\project\school\340project_12-2-16\school\obj\Debug\school.pdb
+C:\Users\tscha316\Source\Repos\340project\school\bin\Debug\school.exe
+C:\Users\tscha316\Source\Repos\340project\school\bin\Debug\school.pdb
+C:\Users\tscha316\Source\Repos\340project\school\obj\Debug\school.csprojResolveAssemblyReference.cache
+C:\Users\tscha316\Source\Repos\340project\school\obj\Debug\school.DepartmentStaffHome.resources
+C:\Users\tscha316\Source\Repos\340project\school\obj\Debug\CourseProject.UI.frmLogIn.resources
+C:\Users\tscha316\Source\Repos\340project\school\obj\Debug\school.RegistrarEdit.resources
+C:\Users\tscha316\Source\Repos\340project\school\obj\Debug\school.RegistrarStaffHome.resources
+C:\Users\tscha316\Source\Repos\340project\school\obj\Debug\school.StudentHome.resources
+C:\Users\tscha316\Source\Repos\340project\school\obj\Debug\school.Properties.Resources.resources
+C:\Users\tscha316\Source\Repos\340project\school\obj\Debug\school.csproj.GenerateResource.Cache

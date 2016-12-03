@@ -121,7 +121,7 @@ namespace Data
                 PushError("Non-Null Object must be passed into Update method");
                 return false;
             }
-            string query = QueryBuilder.BuildQuery<T>(QueryBuilder.QueryTypes.Update, conditions: conditions, updateObj: objToSave, primaryKeyField: primaryKeyField);
+            string query = QueryBuilder.BuildQuery<T>(QueryBuilder.QueryTypes.Update, conditions: conditions, updateObj: objToSave, primaryKeyField: primaryKeyField, updateFields: updateFields);
 
             return ExecuteSQLCommand(query);
         }
@@ -535,7 +535,7 @@ namespace Data
                     {
                         if (u == primaryKeyField)
                             continue;
-                        PropertyInfo prop = objectType.GetProperty(u);
+                        PropertyInfo prop = objectType.GetProperty(u.Capitalize());
                         setClause.Append($"{u}={GetQueryValue(prop, updateObject)},");
                     }
                 }
