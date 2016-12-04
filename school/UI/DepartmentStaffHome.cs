@@ -31,8 +31,11 @@ namespace school
 
         private void DepartmentStaffHome_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'enquadeDataSet1.staff' table. You can move, or remove it, as needed.
+            this.staffTableAdapter.Fill(this.enquadeDataSet1.staff);
             // TODO: This line of code loads data into the 'enquadeDataSet.students' table. You can move, or remove it, as needed.
             this.studentsTableAdapter.Fill(this.enquadeDataSet.students);
+            gradAssistantGridView.DataSource = this.enquadeDataSet.students.Select("gradAssistant='Y'");
             // TODO: This line of code loads data into the 'enquadeDataSet.sections' table. You can move, or remove it, as needed.
             this.sectionsTableAdapter.Fill(this.enquadeDataSet.sections);
             // TODO: This line of code loads data into the 'enquadeDataSet.authorizations' table. You can move, or remove it, as needed.
@@ -132,6 +135,24 @@ namespace school
             {
                 MessageBox.Show("This student is already a Grad Assistant", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void fillByGradAssistantToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.studentsTableAdapter.FillByGradAssistant(this.enquadeDataSet.students);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            instructorSectionsView.DataSource = this.enquadeDataSet.sections.Select("instructor='" + ((DataRowView)comboBox4.SelectedItem).Row.Field<string>("instructor") + "'");
         }
     }
 }
