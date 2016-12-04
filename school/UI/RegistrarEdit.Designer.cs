@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.enquadeDataSet = new school.enquadeDataSet();
             this.enquadeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.enquadeDataSet = new school.enquadeDataSet();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -50,15 +50,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(570, 169);
             this.dataGridView1.TabIndex = 0;
             // 
-            // enquadeDataSet
-            // 
-            this.enquadeDataSet.DataSetName = "enquadeDataSet";
-            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // enquadeDataSetBindingSource
             // 
             this.enquadeDataSetBindingSource.DataSource = this.enquadeDataSet;
             this.enquadeDataSetBindingSource.Position = 0;
+            // 
+            // enquadeDataSet
+            // 
+            this.enquadeDataSet.DataSetName = "enquadeDataSet";
+            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button1
             // 
@@ -99,19 +99,19 @@
             this.Name = "RegistrarEdit";
             this.Text = "RegistrarEdit";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource enquadeDataSetBindingSource;
         private enquadeDataSet enquadeDataSet;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }

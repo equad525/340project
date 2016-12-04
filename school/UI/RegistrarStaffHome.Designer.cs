@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.enquadeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.enquadeDataSet = new school.enquadeDataSet();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.enquadeDataSet = new school.enquadeDataSet();
-            this.enquadeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -47,6 +47,16 @@
             this.comboBox1.Size = new System.Drawing.Size(215, 21);
             this.comboBox1.TabIndex = 0;
             // 
+            // enquadeDataSetBindingSource
+            // 
+            this.enquadeDataSetBindingSource.DataSource = this.enquadeDataSet;
+            this.enquadeDataSetBindingSource.Position = 0;
+            // 
+            // enquadeDataSet
+            // 
+            this.enquadeDataSet.DataSetName = "enquadeDataSet";
+            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(37, 137);
@@ -55,6 +65,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Load Selected Table";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -64,16 +75,6 @@
             this.label1.Size = new System.Drawing.Size(160, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Choose a database table to load";
-            // 
-            // enquadeDataSet
-            // 
-            this.enquadeDataSet.DataSetName = "enquadeDataSet";
-            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // enquadeDataSetBindingSource
-            // 
-            this.enquadeDataSetBindingSource.DataSource = this.enquadeDataSet;
-            this.enquadeDataSetBindingSource.Position = 0;
             // 
             // RegistrarStaffHome
             // 
@@ -85,8 +86,8 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "RegistrarStaffHome";
             this.Text = "Registrar Staff Home";
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,10 +95,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.BindingSource enquadeDataSetBindingSource;
         private enquadeDataSet enquadeDataSet;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

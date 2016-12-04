@@ -69,7 +69,7 @@
     <Compile Include="UI\frmLogIn.designer.cs">
       <DependentUpon>frmLogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs" />
+    <Compile Include="PD\Main.cs" />
     <Compile Include="UI\RegistrarEdit.cs">
       <SubType>Form</SubType>
     </Compile>
