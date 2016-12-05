@@ -1,6 +1,6 @@
 ﻿namespace school
 {
-    partial class StudentHome
+    partial class frmStudentHome
     {
         /// <summary>
         /// Required designer variable.
@@ -64,7 +64,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.enrollsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.enrollsTableAdapter = new school.enquadeDataSetTableAdapters.enrollsTableAdapter();
-            this.enrollsDataGridView = new System.Windows.Forms.DataGridView();
+            this.currentEnrollsGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,14 +84,14 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
-            this.enrollsDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pastEnrollsGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
             termLabel = new System.Windows.Forms.Label();
             yearLabel = new System.Windows.Forms.Label();
             crnLabel = new System.Windows.Forms.Label();
@@ -109,13 +109,130 @@
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enrollsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enrollsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentEnrollsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.variableFeeRateBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.variableFeeRateDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fixedFeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fixedFeeDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enrollsDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pastEnrollsGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // termLabel
+            // 
+            termLabel.AutoSize = true;
+            termLabel.Location = new System.Drawing.Point(12, 28);
+            termLabel.Name = "termLabel";
+            termLabel.Size = new System.Drawing.Size(30, 13);
+            termLabel.TabIndex = 0;
+            termLabel.Text = "term:";
+            // 
+            // yearLabel
+            // 
+            yearLabel.AutoSize = true;
+            yearLabel.Location = new System.Drawing.Point(12, 54);
+            yearLabel.Name = "yearLabel";
+            yearLabel.Size = new System.Drawing.Size(30, 13);
+            yearLabel.TabIndex = 2;
+            yearLabel.Text = "year:";
+            // 
+            // crnLabel
+            // 
+            crnLabel.AutoSize = true;
+            crnLabel.Location = new System.Drawing.Point(12, 80);
+            crnLabel.Name = "crnLabel";
+            crnLabel.Size = new System.Drawing.Size(25, 13);
+            crnLabel.TabIndex = 4;
+            crnLabel.Text = "crn:";
+            // 
+            // cprefixLabel
+            // 
+            cprefixLabel.AutoSize = true;
+            cprefixLabel.Location = new System.Drawing.Point(12, 106);
+            cprefixLabel.Name = "cprefixLabel";
+            cprefixLabel.Size = new System.Drawing.Size(41, 13);
+            cprefixLabel.TabIndex = 6;
+            cprefixLabel.Text = "cprefix:";
+            // 
+            // cnoLabel
+            // 
+            cnoLabel.AutoSize = true;
+            cnoLabel.Location = new System.Drawing.Point(12, 132);
+            cnoLabel.Name = "cnoLabel";
+            cnoLabel.Size = new System.Drawing.Size(28, 13);
+            cnoLabel.TabIndex = 8;
+            cnoLabel.Text = "cno:";
+            // 
+            // sectionLabel
+            // 
+            sectionLabel.AutoSize = true;
+            sectionLabel.Location = new System.Drawing.Point(12, 158);
+            sectionLabel.Name = "sectionLabel";
+            sectionLabel.Size = new System.Drawing.Size(44, 13);
+            sectionLabel.TabIndex = 10;
+            sectionLabel.Text = "section:";
+            // 
+            // daysLabel
+            // 
+            daysLabel.AutoSize = true;
+            daysLabel.Location = new System.Drawing.Point(12, 184);
+            daysLabel.Name = "daysLabel";
+            daysLabel.Size = new System.Drawing.Size(32, 13);
+            daysLabel.TabIndex = 12;
+            daysLabel.Text = "days:";
+            // 
+            // startTimeLabel
+            // 
+            startTimeLabel.AutoSize = true;
+            startTimeLabel.Location = new System.Drawing.Point(12, 210);
+            startTimeLabel.Name = "startTimeLabel";
+            startTimeLabel.Size = new System.Drawing.Size(56, 13);
+            startTimeLabel.TabIndex = 14;
+            startTimeLabel.Text = "start Time:";
+            // 
+            // endTimeLabel
+            // 
+            endTimeLabel.AutoSize = true;
+            endTimeLabel.Location = new System.Drawing.Point(12, 236);
+            endTimeLabel.Name = "endTimeLabel";
+            endTimeLabel.Size = new System.Drawing.Size(54, 13);
+            endTimeLabel.TabIndex = 16;
+            endTimeLabel.Text = "end Time:";
+            // 
+            // roomLabel
+            // 
+            roomLabel.AutoSize = true;
+            roomLabel.Location = new System.Drawing.Point(12, 262);
+            roomLabel.Name = "roomLabel";
+            roomLabel.Size = new System.Drawing.Size(33, 13);
+            roomLabel.TabIndex = 18;
+            roomLabel.Text = "room:";
+            // 
+            // capLabel
+            // 
+            capLabel.AutoSize = true;
+            capLabel.Location = new System.Drawing.Point(12, 288);
+            capLabel.Name = "capLabel";
+            capLabel.Size = new System.Drawing.Size(28, 13);
+            capLabel.TabIndex = 20;
+            capLabel.Text = "cap:";
+            // 
+            // instructorLabel
+            // 
+            instructorLabel.AutoSize = true;
+            instructorLabel.Location = new System.Drawing.Point(12, 314);
+            instructorLabel.Name = "instructorLabel";
+            instructorLabel.Size = new System.Drawing.Size(53, 13);
+            instructorLabel.TabIndex = 22;
+            instructorLabel.Text = "instructor:";
+            // 
+            // authLabel
+            // 
+            authLabel.AutoSize = true;
+            authLabel.Location = new System.Drawing.Point(12, 340);
+            authLabel.Name = "authLabel";
+            authLabel.Size = new System.Drawing.Size(31, 13);
+            authLabel.TabIndex = 24;
+            authLabel.Text = "auth:";
             // 
             // staffBindingSource
             // 
@@ -159,15 +276,6 @@
             // 
             this.sectionsTableAdapter.ClearBeforeFill = true;
             // 
-            // termLabel
-            // 
-            termLabel.AutoSize = true;
-            termLabel.Location = new System.Drawing.Point(12, 28);
-            termLabel.Name = "termLabel";
-            termLabel.Size = new System.Drawing.Size(30, 13);
-            termLabel.TabIndex = 0;
-            termLabel.Text = "term:";
-            // 
             // termTextBox
             // 
             this.termTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "term", true));
@@ -175,15 +283,6 @@
             this.termTextBox.Name = "termTextBox";
             this.termTextBox.Size = new System.Drawing.Size(100, 20);
             this.termTextBox.TabIndex = 1;
-            // 
-            // yearLabel
-            // 
-            yearLabel.AutoSize = true;
-            yearLabel.Location = new System.Drawing.Point(12, 54);
-            yearLabel.Name = "yearLabel";
-            yearLabel.Size = new System.Drawing.Size(30, 13);
-            yearLabel.TabIndex = 2;
-            yearLabel.Text = "year:";
             // 
             // yearTextBox
             // 
@@ -193,15 +292,6 @@
             this.yearTextBox.Size = new System.Drawing.Size(100, 20);
             this.yearTextBox.TabIndex = 3;
             // 
-            // crnLabel
-            // 
-            crnLabel.AutoSize = true;
-            crnLabel.Location = new System.Drawing.Point(12, 80);
-            crnLabel.Name = "crnLabel";
-            crnLabel.Size = new System.Drawing.Size(25, 13);
-            crnLabel.TabIndex = 4;
-            crnLabel.Text = "crn:";
-            // 
             // crnTextBox
             // 
             this.crnTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "crn", true));
@@ -209,15 +299,6 @@
             this.crnTextBox.Name = "crnTextBox";
             this.crnTextBox.Size = new System.Drawing.Size(100, 20);
             this.crnTextBox.TabIndex = 5;
-            // 
-            // cprefixLabel
-            // 
-            cprefixLabel.AutoSize = true;
-            cprefixLabel.Location = new System.Drawing.Point(12, 106);
-            cprefixLabel.Name = "cprefixLabel";
-            cprefixLabel.Size = new System.Drawing.Size(41, 13);
-            cprefixLabel.TabIndex = 6;
-            cprefixLabel.Text = "cprefix:";
             // 
             // cprefixTextBox
             // 
@@ -227,15 +308,6 @@
             this.cprefixTextBox.Size = new System.Drawing.Size(100, 20);
             this.cprefixTextBox.TabIndex = 7;
             // 
-            // cnoLabel
-            // 
-            cnoLabel.AutoSize = true;
-            cnoLabel.Location = new System.Drawing.Point(12, 132);
-            cnoLabel.Name = "cnoLabel";
-            cnoLabel.Size = new System.Drawing.Size(28, 13);
-            cnoLabel.TabIndex = 8;
-            cnoLabel.Text = "cno:";
-            // 
             // cnoTextBox
             // 
             this.cnoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "cno", true));
@@ -243,15 +315,6 @@
             this.cnoTextBox.Name = "cnoTextBox";
             this.cnoTextBox.Size = new System.Drawing.Size(100, 20);
             this.cnoTextBox.TabIndex = 9;
-            // 
-            // sectionLabel
-            // 
-            sectionLabel.AutoSize = true;
-            sectionLabel.Location = new System.Drawing.Point(12, 158);
-            sectionLabel.Name = "sectionLabel";
-            sectionLabel.Size = new System.Drawing.Size(44, 13);
-            sectionLabel.TabIndex = 10;
-            sectionLabel.Text = "section:";
             // 
             // sectionTextBox
             // 
@@ -261,15 +324,6 @@
             this.sectionTextBox.Size = new System.Drawing.Size(100, 20);
             this.sectionTextBox.TabIndex = 11;
             // 
-            // daysLabel
-            // 
-            daysLabel.AutoSize = true;
-            daysLabel.Location = new System.Drawing.Point(12, 184);
-            daysLabel.Name = "daysLabel";
-            daysLabel.Size = new System.Drawing.Size(32, 13);
-            daysLabel.TabIndex = 12;
-            daysLabel.Text = "days:";
-            // 
             // daysTextBox
             // 
             this.daysTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "days", true));
@@ -277,15 +331,6 @@
             this.daysTextBox.Name = "daysTextBox";
             this.daysTextBox.Size = new System.Drawing.Size(100, 20);
             this.daysTextBox.TabIndex = 13;
-            // 
-            // startTimeLabel
-            // 
-            startTimeLabel.AutoSize = true;
-            startTimeLabel.Location = new System.Drawing.Point(12, 210);
-            startTimeLabel.Name = "startTimeLabel";
-            startTimeLabel.Size = new System.Drawing.Size(56, 13);
-            startTimeLabel.TabIndex = 14;
-            startTimeLabel.Text = "start Time:";
             // 
             // startTimeTextBox
             // 
@@ -295,15 +340,6 @@
             this.startTimeTextBox.Size = new System.Drawing.Size(100, 20);
             this.startTimeTextBox.TabIndex = 15;
             // 
-            // endTimeLabel
-            // 
-            endTimeLabel.AutoSize = true;
-            endTimeLabel.Location = new System.Drawing.Point(12, 236);
-            endTimeLabel.Name = "endTimeLabel";
-            endTimeLabel.Size = new System.Drawing.Size(54, 13);
-            endTimeLabel.TabIndex = 16;
-            endTimeLabel.Text = "end Time:";
-            // 
             // endTimeTextBox
             // 
             this.endTimeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "endTime", true));
@@ -311,15 +347,6 @@
             this.endTimeTextBox.Name = "endTimeTextBox";
             this.endTimeTextBox.Size = new System.Drawing.Size(100, 20);
             this.endTimeTextBox.TabIndex = 17;
-            // 
-            // roomLabel
-            // 
-            roomLabel.AutoSize = true;
-            roomLabel.Location = new System.Drawing.Point(12, 262);
-            roomLabel.Name = "roomLabel";
-            roomLabel.Size = new System.Drawing.Size(33, 13);
-            roomLabel.TabIndex = 18;
-            roomLabel.Text = "room:";
             // 
             // roomTextBox
             // 
@@ -329,15 +356,6 @@
             this.roomTextBox.Size = new System.Drawing.Size(100, 20);
             this.roomTextBox.TabIndex = 19;
             // 
-            // capLabel
-            // 
-            capLabel.AutoSize = true;
-            capLabel.Location = new System.Drawing.Point(12, 288);
-            capLabel.Name = "capLabel";
-            capLabel.Size = new System.Drawing.Size(28, 13);
-            capLabel.TabIndex = 20;
-            capLabel.Text = "cap:";
-            // 
             // capTextBox
             // 
             this.capTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "cap", true));
@@ -346,15 +364,6 @@
             this.capTextBox.Size = new System.Drawing.Size(100, 20);
             this.capTextBox.TabIndex = 21;
             // 
-            // instructorLabel
-            // 
-            instructorLabel.AutoSize = true;
-            instructorLabel.Location = new System.Drawing.Point(12, 314);
-            instructorLabel.Name = "instructorLabel";
-            instructorLabel.Size = new System.Drawing.Size(53, 13);
-            instructorLabel.TabIndex = 22;
-            instructorLabel.Text = "instructor:";
-            // 
             // instructorTextBox
             // 
             this.instructorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "instructor", true));
@@ -362,15 +371,6 @@
             this.instructorTextBox.Name = "instructorTextBox";
             this.instructorTextBox.Size = new System.Drawing.Size(100, 20);
             this.instructorTextBox.TabIndex = 23;
-            // 
-            // authLabel
-            // 
-            authLabel.AutoSize = true;
-            authLabel.Location = new System.Drawing.Point(12, 340);
-            authLabel.Name = "authLabel";
-            authLabel.Size = new System.Drawing.Size(31, 13);
-            authLabel.TabIndex = 24;
-            authLabel.Text = "auth:";
             // 
             // authTextBox
             // 
@@ -398,21 +398,21 @@
             // 
             this.enrollsTableAdapter.ClearBeforeFill = true;
             // 
-            // enrollsDataGridView
+            // currentEnrollsGridView
             // 
-            this.enrollsDataGridView.AutoGenerateColumns = false;
-            this.enrollsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.enrollsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.currentEnrollsGridView.AutoGenerateColumns = false;
+            this.currentEnrollsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.currentEnrollsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.enrollsDataGridView.DataSource = this.enrollsBindingSource;
-            this.enrollsDataGridView.Location = new System.Drawing.Point(338, 25);
-            this.enrollsDataGridView.Name = "enrollsDataGridView";
-            this.enrollsDataGridView.Size = new System.Drawing.Size(547, 145);
-            this.enrollsDataGridView.TabIndex = 27;
+            this.currentEnrollsGridView.DataSource = this.enrollsBindingSource;
+            this.currentEnrollsGridView.Location = new System.Drawing.Point(338, 25);
+            this.currentEnrollsGridView.Name = "currentEnrollsGridView";
+            this.currentEnrollsGridView.Size = new System.Drawing.Size(547, 145);
+            this.currentEnrollsGridView.TabIndex = 27;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -471,7 +471,7 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.variableFeeRateDataGridView.DataSource = this.variableFeeRateBindingSource;
-            this.variableFeeRateDataGridView.Location = new System.Drawing.Point(15, 474);
+            this.variableFeeRateDataGridView.Location = new System.Drawing.Point(338, 487);
             this.variableFeeRateDataGridView.Name = "variableFeeRateDataGridView";
             this.variableFeeRateDataGridView.Size = new System.Drawing.Size(343, 133);
             this.variableFeeRateDataGridView.TabIndex = 29;
@@ -497,7 +497,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 455);
+            this.label3.Location = new System.Drawing.Point(341, 468);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 30;
@@ -520,9 +520,9 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
             this.fixedFeeDataGridView.DataSource = this.fixedFeeBindingSource;
-            this.fixedFeeDataGridView.Location = new System.Drawing.Point(381, 487);
+            this.fixedFeeDataGridView.Location = new System.Drawing.Point(12, 487);
             this.fixedFeeDataGridView.Name = "fixedFeeDataGridView";
-            this.fixedFeeDataGridView.Size = new System.Drawing.Size(243, 120);
+            this.fixedFeeDataGridView.Size = new System.Drawing.Size(243, 133);
             this.fixedFeeDataGridView.TabIndex = 31;
             // 
             // dataGridViewTextBoxColumn9
@@ -540,27 +540,27 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(381, 468);
+            this.label4.Location = new System.Drawing.Point(12, 468);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 32;
             this.label4.Text = "Fixed fees";
             // 
-            // enrollsDataGridView1
+            // pastEnrollsGridView
             // 
-            this.enrollsDataGridView1.AutoGenerateColumns = false;
-            this.enrollsDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.enrollsDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pastEnrollsGridView.AutoGenerateColumns = false;
+            this.pastEnrollsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.pastEnrollsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15});
-            this.enrollsDataGridView1.DataSource = this.enrollsBindingSource;
-            this.enrollsDataGridView1.Location = new System.Drawing.Point(341, 210);
-            this.enrollsDataGridView1.Name = "enrollsDataGridView1";
-            this.enrollsDataGridView1.Size = new System.Drawing.Size(544, 241);
-            this.enrollsDataGridView1.TabIndex = 33;
+            this.pastEnrollsGridView.DataSource = this.enrollsBindingSource;
+            this.pastEnrollsGridView.Location = new System.Drawing.Point(341, 210);
+            this.pastEnrollsGridView.Name = "pastEnrollsGridView";
+            this.pastEnrollsGridView.Size = new System.Drawing.Size(544, 241);
+            this.pastEnrollsGridView.TabIndex = 33;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -601,29 +601,30 @@
             this.label5.TabIndex = 34;
             this.label5.Text = "View transcripts from past enrollments";
             // 
-            // button1
+            // btnRegister
             // 
-            this.button1.Location = new System.Drawing.Point(13, 373);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 45);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Register";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRegister.Location = new System.Drawing.Point(13, 373);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(161, 45);
+            this.btnRegister.TabIndex = 35;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // StudentHome
+            // frmStudentHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 619);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(905, 633);
+            this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.enrollsDataGridView1);
+            this.Controls.Add(this.pastEnrollsGridView);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.fixedFeeDataGridView);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.variableFeeRateDataGridView);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.enrollsDataGridView);
+            this.Controls.Add(this.currentEnrollsGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(termLabel);
             this.Controls.Add(this.termTextBox);
@@ -651,19 +652,19 @@
             this.Controls.Add(this.instructorTextBox);
             this.Controls.Add(authLabel);
             this.Controls.Add(this.authTextBox);
-            this.Name = "StudentHome";
+            this.Name = "frmStudentHome";
             this.Text = "Student Home";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.StudentHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enrollsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enrollsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentEnrollsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.variableFeeRateBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.variableFeeRateDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fixedFeeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fixedFeeDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enrollsDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pastEnrollsGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -692,7 +693,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource enrollsBindingSource;
         private enquadeDataSetTableAdapters.enrollsTableAdapter enrollsTableAdapter;
-        private System.Windows.Forms.DataGridView enrollsDataGridView;
+        private System.Windows.Forms.DataGridView currentEnrollsGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -712,14 +713,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView enrollsDataGridView1;
+        private System.Windows.Forms.DataGridView pastEnrollsGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRegister;
     }
 }
 

@@ -48,7 +48,7 @@ namespace CourseProject.UI
                 else if (trylogin.Equals("Student"))
                 {
                     this.Hide();
-                    StudentHome studentForm = new StudentHome();
+                    frmStudentHome studentForm = new frmStudentHome();
                     studentForm.Show();
                     studentForm.Closed += (s, args) => this.Show();
                     clearLoginForm();
