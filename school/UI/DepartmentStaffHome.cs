@@ -35,11 +35,14 @@ namespace school
             this.staffTableAdapter.Fill(this.enquadeDataSet1.staff);
             // TODO: This line of code loads data into the 'enquadeDataSet.students' table. You can move, or remove it, as needed.
             this.studentsTableAdapter.Fill(this.enquadeDataSet.students);
-            gradAssistantGridView.DataSource = this.enquadeDataSet.students.Select("gradAssistant='Y'");
+            gradAssistantGridView.DataSource = new DataView(enquadeDataSet.students).ToTable(true, "sid", "fname", "lname", "stype").Select("gradAssistant='Y'");
             // TODO: This line of code loads data into the 'enquadeDataSet.sections' table. You can move, or remove it, as needed.
             this.sectionsTableAdapter.Fill(this.enquadeDataSet.sections);
             // TODO: This line of code loads data into the 'enquadeDataSet.authorizations' table. You can move, or remove it, as needed.
             this.authorizationsTableAdapter.Fill(this.enquadeDataSet.authorizations);
+
+            DataTable testDistinct = new DataView(enquadeDataSet.sections).ToTable(true, "instructor");
+            comboBox4.DataSource = testDistinct;
 
         }
 
