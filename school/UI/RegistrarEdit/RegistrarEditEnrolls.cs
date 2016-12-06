@@ -21,6 +21,8 @@ namespace school.UI.RegistrarEdit
         {
             // TODO: This line of code loads data into the 'enquadeDataSet.enrolls' table. You can move, or remove it, as needed.
             this.enrollsTableAdapter.Fill(this.enquadeDataSet.enrolls);
+            // TODO: This line of code loads data into the 'enquadeDataSet.enrolls' table. You can move, or remove it, as needed.
+            this.enrollsTableAdapter.Fill(this.enquadeDataSet.enrolls);
 
         }
     }

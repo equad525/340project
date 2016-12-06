@@ -16,5 +16,12 @@ namespace school.UI.RegistrarEdit
         {
             InitializeComponent();
         }
+
+        private void RegistrarEditVariableFees_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'enquadeDataSet.variableFeeRate' table. You can move, or remove it, as needed.
+            this.variableFeeRateTableAdapter.Fill(this.enquadeDataSet.variableFeeRate);
+
+        }
     }
 }

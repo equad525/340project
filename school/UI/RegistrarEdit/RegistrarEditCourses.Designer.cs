@@ -29,30 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.coursesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.enquadeDataSet = new school.enquadeDataSet();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.enquadeDataSet = new school.enquadeDataSet();
+            this.coursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coursesTableAdapter = new school.enquadeDataSetTableAdapters.coursesTableAdapter();
             this.cprefixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ctitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.choursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // coursesBindingSource1
-            // 
-            this.coursesBindingSource1.DataMember = "courses";
-            this.coursesBindingSource1.DataSource = this.enquadeDataSet;
-            // 
-            // enquadeDataSet
-            // 
-            this.enquadeDataSet.DataSetName = "enquadeDataSet";
-            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button3
             // 
@@ -90,11 +81,25 @@
             this.cnoDataGridViewTextBoxColumn,
             this.ctitleDataGridViewTextBoxColumn,
             this.choursDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.coursesBindingSource1;
+            this.dataGridView1.DataSource = this.coursesBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(34, 11);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(570, 169);
             this.dataGridView1.TabIndex = 8;
+            // 
+            // enquadeDataSet
+            // 
+            this.enquadeDataSet.DataSetName = "enquadeDataSet";
+            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // coursesBindingSource
+            // 
+            this.coursesBindingSource.DataMember = "courses";
+            this.coursesBindingSource.DataSource = this.enquadeDataSet;
+            // 
+            // coursesTableAdapter
+            // 
+            this.coursesTableAdapter.ClearBeforeFill = true;
             // 
             // cprefixDataGridViewTextBoxColumn
             // 
@@ -131,21 +136,22 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "RegistrarEditCourses";
             this.Text = "RegistrarEditCourses";
-            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
+            this.Load += new System.EventHandler(this.RegistrarEditCourses_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.BindingSource coursesBindingSource1;
-        private enquadeDataSet enquadeDataSet;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private enquadeDataSet enquadeDataSet;
+        private System.Windows.Forms.BindingSource coursesBindingSource;
+        private enquadeDataSetTableAdapters.coursesTableAdapter coursesTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn cprefixDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cnoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ctitleDataGridViewTextBoxColumn;

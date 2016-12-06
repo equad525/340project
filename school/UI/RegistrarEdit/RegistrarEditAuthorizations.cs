@@ -36,6 +36,8 @@ namespace school
         {
             // TODO: This line of code loads data into the 'enquadeDataSet.authorizations' table. You can move, or remove it, as needed.
             this.authorizationsTableAdapter.Fill(this.enquadeDataSet.authorizations);
+            // TODO: This line of code loads data into the 'enquadeDataSet.authorizations' table. You can move, or remove it, as needed.
+            this.authorizationsTableAdapter.Fill(this.enquadeDataSet.authorizations);
 
         }
     }

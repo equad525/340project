@@ -16,5 +16,14 @@ namespace school.UI.RegistrarEdit
         {
             InitializeComponent();
         }
+
+        private void RegistrarEditStudent_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'enquadeDataSet.students' table. You can move, or remove it, as needed.
+            this.studentsTableAdapter.Fill(this.enquadeDataSet.students);
+            // TODO: This line of code loads data into the 'enquadeDataSet.students' table. You can move, or remove it, as needed.
+            this.studentsTableAdapter.Fill(this.enquadeDataSet.students);
+
+        }
     }
 }

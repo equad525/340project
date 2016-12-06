@@ -29,68 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.variableFeeRateTableAdapter = new school.enquadeDataSetTableAdapters.variableFeeRateTableAdapter();
-            this.feeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inOrOutOfStateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.authorizationsTableAdapter = new school.enquadeDataSetTableAdapters.authorizationsTableAdapter();
-            this.enquadeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.enquadeDataSet = new school.enquadeDataSet();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.authorizationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.authorizationsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.enquadeDataSet = new school.enquadeDataSet();
             this.variableFeeRateBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.coursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.coursesTableAdapter = new school.enquadeDataSetTableAdapters.coursesTableAdapter();
-            this.authorizationsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource1)).BeginInit();
+            this.variableFeeRateTableAdapter = new school.enquadeDataSetTableAdapters.variableFeeRateTableAdapter();
+            this.sTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inOrOutOfStateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.feeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.variableFeeRateBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // variableFeeRateTableAdapter
-            // 
-            this.variableFeeRateTableAdapter.ClearBeforeFill = true;
-            // 
-            // feeDataGridViewTextBoxColumn
-            // 
-            this.feeDataGridViewTextBoxColumn.DataPropertyName = "fee";
-            this.feeDataGridViewTextBoxColumn.HeaderText = "fee";
-            this.feeDataGridViewTextBoxColumn.Name = "feeDataGridViewTextBoxColumn";
-            // 
-            // inOrOutOfStateDataGridViewTextBoxColumn
-            // 
-            this.inOrOutOfStateDataGridViewTextBoxColumn.DataPropertyName = "inOrOutOfState";
-            this.inOrOutOfStateDataGridViewTextBoxColumn.HeaderText = "inOrOutOfState";
-            this.inOrOutOfStateDataGridViewTextBoxColumn.Name = "inOrOutOfStateDataGridViewTextBoxColumn";
-            // 
-            // sTypeDataGridViewTextBoxColumn
-            // 
-            this.sTypeDataGridViewTextBoxColumn.DataPropertyName = "sType";
-            this.sTypeDataGridViewTextBoxColumn.HeaderText = "sType";
-            this.sTypeDataGridViewTextBoxColumn.Name = "sTypeDataGridViewTextBoxColumn";
-            // 
-            // authorizationsTableAdapter
-            // 
-            this.authorizationsTableAdapter.ClearBeforeFill = true;
-            // 
-            // enquadeDataSetBindingSource
-            // 
-            this.enquadeDataSetBindingSource.DataSource = this.enquadeDataSet;
-            this.enquadeDataSetBindingSource.Position = 0;
-            // 
-            // enquadeDataSet
-            // 
-            this.enquadeDataSet.DataSetName = "enquadeDataSet";
-            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button3
             // 
@@ -119,16 +71,6 @@
             this.button1.Text = "Accept Changes";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // authorizationsBindingSource
-            // 
-            this.authorizationsBindingSource.DataMember = "authorizations";
-            this.authorizationsBindingSource.DataSource = this.enquadeDataSet;
-            // 
-            // authorizationsBindingSource1
-            // 
-            this.authorizationsBindingSource1.DataMember = "authorizations";
-            this.authorizationsBindingSource1.DataSource = this.enquadeDataSet;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
@@ -143,24 +85,37 @@
             this.dataGridView1.Size = new System.Drawing.Size(570, 169);
             this.dataGridView1.TabIndex = 8;
             // 
+            // enquadeDataSet
+            // 
+            this.enquadeDataSet.DataSetName = "enquadeDataSet";
+            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // variableFeeRateBindingSource
             // 
             this.variableFeeRateBindingSource.DataMember = "variableFeeRate";
             this.variableFeeRateBindingSource.DataSource = this.enquadeDataSet;
             // 
-            // coursesBindingSource
+            // variableFeeRateTableAdapter
             // 
-            this.coursesBindingSource.DataMember = "courses";
-            this.coursesBindingSource.DataSource = this.enquadeDataSet;
+            this.variableFeeRateTableAdapter.ClearBeforeFill = true;
             // 
-            // coursesTableAdapter
+            // sTypeDataGridViewTextBoxColumn
             // 
-            this.coursesTableAdapter.ClearBeforeFill = true;
+            this.sTypeDataGridViewTextBoxColumn.DataPropertyName = "sType";
+            this.sTypeDataGridViewTextBoxColumn.HeaderText = "sType";
+            this.sTypeDataGridViewTextBoxColumn.Name = "sTypeDataGridViewTextBoxColumn";
             // 
-            // authorizationsBindingSource2
+            // inOrOutOfStateDataGridViewTextBoxColumn
             // 
-            this.authorizationsBindingSource2.DataMember = "authorizations";
-            this.authorizationsBindingSource2.DataSource = this.enquadeDataSet;
+            this.inOrOutOfStateDataGridViewTextBoxColumn.DataPropertyName = "inOrOutOfState";
+            this.inOrOutOfStateDataGridViewTextBoxColumn.HeaderText = "inOrOutOfState";
+            this.inOrOutOfStateDataGridViewTextBoxColumn.Name = "inOrOutOfStateDataGridViewTextBoxColumn";
+            // 
+            // feeDataGridViewTextBoxColumn
+            // 
+            this.feeDataGridViewTextBoxColumn.DataPropertyName = "fee";
+            this.feeDataGridViewTextBoxColumn.HeaderText = "fee";
+            this.feeDataGridViewTextBoxColumn.Name = "feeDataGridViewTextBoxColumn";
             // 
             // RegistrarEditVariableFees
             // 
@@ -173,36 +128,24 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "RegistrarEditVariableFees";
             this.Text = "RegistrarEditVariableFees";
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource1)).EndInit();
+            this.Load += new System.EventHandler(this.RegistrarEditVariableFees_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.variableFeeRateBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private enquadeDataSetTableAdapters.variableFeeRateTableAdapter variableFeeRateTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn feeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inOrOutOfStateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTypeDataGridViewTextBoxColumn;
-        private enquadeDataSetTableAdapters.authorizationsTableAdapter authorizationsTableAdapter;
-        private System.Windows.Forms.BindingSource enquadeDataSetBindingSource;
-        private enquadeDataSet enquadeDataSet;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.BindingSource authorizationsBindingSource;
-        private System.Windows.Forms.BindingSource authorizationsBindingSource1;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private enquadeDataSet enquadeDataSet;
         private System.Windows.Forms.BindingSource variableFeeRateBindingSource;
-        private System.Windows.Forms.BindingSource coursesBindingSource;
-        private enquadeDataSetTableAdapters.coursesTableAdapter coursesTableAdapter;
-        private System.Windows.Forms.BindingSource authorizationsBindingSource2;
+        private enquadeDataSetTableAdapters.variableFeeRateTableAdapter variableFeeRateTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inOrOutOfStateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn feeDataGridViewTextBoxColumn;
     }
 }

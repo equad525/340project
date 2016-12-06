@@ -30,11 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.enquadeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.enquadeDataSet = new school.enquadeDataSet();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.enquadeDataSet = new school.enquadeDataSet();
             this.authorizationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.authorizationsTableAdapter = new school.enquadeDataSetTableAdapters.authorizationsTableAdapter();
             this.termDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +42,6 @@
             this.sidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -63,16 +61,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(570, 169);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // enquadeDataSetBindingSource
-            // 
-            this.enquadeDataSetBindingSource.DataSource = this.enquadeDataSet;
-            this.enquadeDataSetBindingSource.Position = 0;
-            // 
-            // enquadeDataSet
-            // 
-            this.enquadeDataSet.DataSetName = "enquadeDataSet";
-            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button1
             // 
@@ -103,6 +91,11 @@
             this.button3.Text = "Back To Home";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // enquadeDataSet
+            // 
+            this.enquadeDataSet.DataSetName = "enquadeDataSet";
+            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // authorizationsBindingSource
             // 
@@ -156,7 +149,6 @@
             this.Text = "RegistrarEdit";
             this.Load += new System.EventHandler(this.RegistrarEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -164,13 +156,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.BindingSource enquadeDataSetBindingSource;
-        private enquadeDataSet enquadeDataSet;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private enquadeDataSet enquadeDataSet;
         private System.Windows.Forms.BindingSource authorizationsBindingSource;
         private enquadeDataSetTableAdapters.authorizationsTableAdapter authorizationsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn termDataGridViewTextBoxColumn;
