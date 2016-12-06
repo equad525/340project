@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace school
 {
-    public partial class RegistrarEdit : Form
+    public partial class RegistrarEditAuthorizations : Form
     {
-        public RegistrarEdit()
+        public RegistrarEditAuthorizations()
         {
             InitializeComponent();
         }

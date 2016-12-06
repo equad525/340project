@@ -70,17 +70,59 @@
       <DependentUpon>frmLogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="PD\Main.cs" />
-    <Compile Include="UI\RegistratEdit\RegistrarEditAuthorizations.cs">
+    <Compile Include="UI\RegistrarEdit\RegistrarEditAuthorizations.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\RegistratEdit\RegistrarEditAuthorizations.Designer.cs">
+    <Compile Include="UI\RegistrarEdit\RegistrarEditAuthorizations.Designer.cs">
       <DependentUpon>RegistrarEditAuthorizations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditEnrolls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditEnrolls.Designer.cs">
+      <DependentUpon>RegistrarEditEnrolls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditFixedFees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditFixedFees.Designer.cs">
+      <DependentUpon>RegistrarEditFixedFees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditSections.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditSections.Designer.cs">
+      <DependentUpon>RegistrarEditSections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditStaff.Designer.cs">
+      <DependentUpon>RegistrarEditStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditStudent.Designer.cs">
+      <DependentUpon>RegistrarEditStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditVariableFees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditVariableFees.Designer.cs">
+      <DependentUpon>RegistrarEditVariableFees.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\RegistrarStaffHome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\RegistrarStaffHome.Designer.cs">
       <DependentUpon>RegistrarStaffHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RegistrarEdit\RegistrarEditCourses.Designer.cs">
+      <DependentUpon>RegistrarEditCourses.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\StudentHome.cs">
       <SubType>Form</SubType>
@@ -101,11 +143,32 @@
     <EmbeddedResource Include="UI\frmLogIn.resx">
       <DependentUpon>frmLogIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\RegistratEdit\RegistrarEditAuthorizations.resx">
+    <EmbeddedResource Include="UI\RegistrarEdit\RegistrarEditAuthorizations.resx">
       <DependentUpon>RegistrarEditAuthorizations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegistrarEdit\RegistrarEditEnrolls.resx">
+      <DependentUpon>RegistrarEditEnrolls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegistrarEdit\RegistrarEditFixedFees.resx">
+      <DependentUpon>RegistrarEditFixedFees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegistrarEdit\RegistrarEditSections.resx">
+      <DependentUpon>RegistrarEditSections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegistrarEdit\RegistrarEditStaff.resx">
+      <DependentUpon>RegistrarEditStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegistrarEdit\RegistrarEditStudent.resx">
+      <DependentUpon>RegistrarEditStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegistrarEdit\RegistrarEditVariableFees.resx">
+      <DependentUpon>RegistrarEditVariableFees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RegistrarStaffHome.resx">
       <DependentUpon>RegistrarStaffHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegistrarEdit\RegistrarEditCourses.resx">
+      <DependentUpon>RegistrarEditCourses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\StudentHome.resx">
       <DependentUpon>StudentHome.cs</DependentUpon>

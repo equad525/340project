@@ -1,6 +1,6 @@
 ﻿namespace school
 {
-    partial class RegistrarEdit
+    partial class RegistrarEditAuthorizations
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.authorizationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.authorizationsTableAdapter = new school.enquadeDataSetTableAdapters.authorizationsTableAdapter();
+            this.termDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.authTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
@@ -47,7 +52,13 @@
             // 
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.DataSource = this.enquadeDataSetBindingSource;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.termDataGridViewTextBoxColumn,
+            this.yearDataGridViewTextBoxColumn,
+            this.crnDataGridViewTextBoxColumn,
+            this.sidDataGridViewTextBoxColumn,
+            this.authTypeDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.authorizationsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(570, 169);
@@ -102,7 +113,37 @@
             // 
             this.authorizationsTableAdapter.ClearBeforeFill = true;
             // 
-            // RegistrarEdit
+            // termDataGridViewTextBoxColumn
+            // 
+            this.termDataGridViewTextBoxColumn.DataPropertyName = "term";
+            this.termDataGridViewTextBoxColumn.HeaderText = "term";
+            this.termDataGridViewTextBoxColumn.Name = "termDataGridViewTextBoxColumn";
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "year";
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            // 
+            // crnDataGridViewTextBoxColumn
+            // 
+            this.crnDataGridViewTextBoxColumn.DataPropertyName = "crn";
+            this.crnDataGridViewTextBoxColumn.HeaderText = "crn";
+            this.crnDataGridViewTextBoxColumn.Name = "crnDataGridViewTextBoxColumn";
+            // 
+            // sidDataGridViewTextBoxColumn
+            // 
+            this.sidDataGridViewTextBoxColumn.DataPropertyName = "sid";
+            this.sidDataGridViewTextBoxColumn.HeaderText = "sid";
+            this.sidDataGridViewTextBoxColumn.Name = "sidDataGridViewTextBoxColumn";
+            // 
+            // authTypeDataGridViewTextBoxColumn
+            // 
+            this.authTypeDataGridViewTextBoxColumn.DataPropertyName = "authType";
+            this.authTypeDataGridViewTextBoxColumn.HeaderText = "authType";
+            this.authTypeDataGridViewTextBoxColumn.Name = "authTypeDataGridViewTextBoxColumn";
+            // 
+            // RegistrarEditAuthorizations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,7 +152,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "RegistrarEdit";
+            this.Name = "RegistrarEditAuthorizations";
             this.Text = "RegistrarEdit";
             this.Load += new System.EventHandler(this.RegistrarEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -132,5 +173,10 @@
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource authorizationsBindingSource;
         private enquadeDataSetTableAdapters.authorizationsTableAdapter authorizationsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn termDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn crnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn authTypeDataGridViewTextBoxColumn;
     }
 }
