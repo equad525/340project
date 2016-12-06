@@ -33,14 +33,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.enquadeDataSet = new school.enquadeDataSet();
-            this.fixedFeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fixedFeeTableAdapter = new school.enquadeDataSetTableAdapters.fixedFeeTableAdapter();
             this.feeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.feeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fixedFeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.enquadeDataSet = new school.enquadeDataSet();
+            this.fixedFeeTableAdapter = new school.enquadeDataSetTableAdapters.fixedFeeTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fixedFeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
@@ -51,6 +51,7 @@
             this.button3.TabIndex = 11;
             this.button3.Text = "Back To Home";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -60,6 +61,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Cancel Changes";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -69,6 +71,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Accept Changes";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -83,20 +86,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(570, 169);
             this.dataGridView1.TabIndex = 8;
             // 
-            // enquadeDataSet
-            // 
-            this.enquadeDataSet.DataSetName = "enquadeDataSet";
-            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // fixedFeeBindingSource
-            // 
-            this.fixedFeeBindingSource.DataMember = "fixedFee";
-            this.fixedFeeBindingSource.DataSource = this.enquadeDataSet;
-            // 
-            // fixedFeeTableAdapter
-            // 
-            this.fixedFeeTableAdapter.ClearBeforeFill = true;
-            // 
             // feeNameDataGridViewTextBoxColumn
             // 
             this.feeNameDataGridViewTextBoxColumn.DataPropertyName = "feeName";
@@ -109,6 +98,20 @@
             this.feeDataGridViewTextBoxColumn.HeaderText = "fee";
             this.feeDataGridViewTextBoxColumn.Name = "feeDataGridViewTextBoxColumn";
             // 
+            // fixedFeeBindingSource
+            // 
+            this.fixedFeeBindingSource.DataMember = "fixedFee";
+            this.fixedFeeBindingSource.DataSource = this.enquadeDataSet;
+            // 
+            // enquadeDataSet
+            // 
+            this.enquadeDataSet.DataSetName = "enquadeDataSet";
+            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // fixedFeeTableAdapter
+            // 
+            this.fixedFeeTableAdapter.ClearBeforeFill = true;
+            // 
             // RegistrarEditFixedFees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,11 +122,12 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "RegistrarEditFixedFees";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistrarEditFixedFees";
             this.Load += new System.EventHandler(this.RegistrarEditFixedFees_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fixedFeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

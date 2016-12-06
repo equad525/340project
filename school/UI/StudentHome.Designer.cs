@@ -653,6 +653,7 @@
             this.Controls.Add(authLabel);
             this.Controls.Add(this.authTextBox);
             this.Name = "frmStudentHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Home";
             this.Load += new System.EventHandler(this.StudentHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();

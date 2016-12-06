@@ -480,6 +480,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "DepartmentStaffHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Department Staff Home";
             this.Load += new System.EventHandler(this.DepartmentStaffHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();

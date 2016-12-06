@@ -23,5 +23,21 @@ namespace school.UI.RegistrarEdit
             this.fixedFeeTableAdapter.Fill(this.enquadeDataSet.fixedFee);
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.fixedFeeTableAdapter.Update(this.enquadeDataSet.fixedFee);
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.fixedFeeTableAdapter.Fill(this.enquadeDataSet.fixedFee);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

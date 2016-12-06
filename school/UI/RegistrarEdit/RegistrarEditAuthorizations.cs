@@ -19,17 +19,17 @@ namespace school
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.authorizationsTableAdapter.Update(this.enquadeDataSet.authorizations);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.authorizationsTableAdapter.Fill(this.enquadeDataSet.authorizations);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void RegistrarEdit_Load(object sender, EventArgs e)

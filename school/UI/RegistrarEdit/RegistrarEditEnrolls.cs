@@ -25,5 +25,20 @@ namespace school.UI.RegistrarEdit
             this.enrollsTableAdapter.Fill(this.enquadeDataSet.enrolls);
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.enrollsTableAdapter.Update(this.enquadeDataSet.enrolls);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.enrollsTableAdapter.Fill(this.enquadeDataSet.enrolls);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

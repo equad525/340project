@@ -23,5 +23,20 @@ namespace school.UI.RegistrarEdit
             this.variableFeeRateTableAdapter.Fill(this.enquadeDataSet.variableFeeRate);
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.variableFeeRateTableAdapter.Update(this.enquadeDataSet.variableFeeRate);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.variableFeeRateTableAdapter.Fill(this.enquadeDataSet.variableFeeRate);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

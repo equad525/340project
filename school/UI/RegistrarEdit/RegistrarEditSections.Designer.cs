@@ -33,9 +33,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.enquadeDataSet = new school.enquadeDataSet();
-            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sectionsTableAdapter = new school.enquadeDataSetTableAdapters.sectionsTableAdapter();
             this.termDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.crnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,9 +46,12 @@
             this.capDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.enquadeDataSet = new school.enquadeDataSet();
+            this.sectionsTableAdapter = new school.enquadeDataSetTableAdapters.sectionsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
@@ -62,6 +62,7 @@
             this.button3.TabIndex = 11;
             this.button3.Text = "Back To Home";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -71,6 +72,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Cancel Changes";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -80,6 +82,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Accept Changes";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -102,22 +105,8 @@
             this.dataGridView1.DataSource = this.sectionsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(18, 11);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(703, 169);
+            this.dataGridView1.Size = new System.Drawing.Size(1354, 169);
             this.dataGridView1.TabIndex = 8;
-            // 
-            // enquadeDataSet
-            // 
-            this.enquadeDataSet.DataSetName = "enquadeDataSet";
-            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sectionsBindingSource
-            // 
-            this.sectionsBindingSource.DataMember = "sections";
-            this.sectionsBindingSource.DataSource = this.enquadeDataSet;
-            // 
-            // sectionsTableAdapter
-            // 
-            this.sectionsTableAdapter.ClearBeforeFill = true;
             // 
             // termDataGridViewTextBoxColumn
             // 
@@ -197,21 +186,36 @@
             this.authDataGridViewTextBoxColumn.HeaderText = "auth";
             this.authDataGridViewTextBoxColumn.Name = "authDataGridViewTextBoxColumn";
             // 
+            // sectionsBindingSource
+            // 
+            this.sectionsBindingSource.DataMember = "sections";
+            this.sectionsBindingSource.DataSource = this.enquadeDataSet;
+            // 
+            // enquadeDataSet
+            // 
+            this.enquadeDataSet.DataSetName = "enquadeDataSet";
+            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sectionsTableAdapter
+            // 
+            this.sectionsTableAdapter.ClearBeforeFill = true;
+            // 
             // RegistrarEditSections
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 261);
+            this.ClientSize = new System.Drawing.Size(1384, 261);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "RegistrarEditSections";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistrarEditSections";
             this.Load += new System.EventHandler(this.RegistrarEditSections_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

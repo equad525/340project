@@ -25,5 +25,20 @@ namespace school.UI.RegistratEdit
             this.coursesTableAdapter.Fill(this.enquadeDataSet.courses);
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.coursesTableAdapter.Update(this.enquadeDataSet.courses);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.coursesTableAdapter.Fill(this.enquadeDataSet.courses);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
