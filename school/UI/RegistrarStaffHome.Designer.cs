@@ -28,34 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.enquadeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.enquadeDataSet = new school.enquadeDataSet();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.enquadeDataSetBindingSource;
+            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            "Students",
+            "Staff",
+            "Courses",
+            "Enrolls",
+            "Sections",
+            "Fixed Fees",
+            "Variable Fees"});
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(37, 82);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(215, 21);
             this.comboBox1.TabIndex = 0;
-            // 
-            // enquadeDataSetBindingSource
-            // 
-            this.enquadeDataSetBindingSource.DataSource = this.enquadeDataSet;
-            this.enquadeDataSetBindingSource.Position = 0;
-            // 
-            // enquadeDataSet
-            // 
-            this.enquadeDataSet.DataSetName = "enquadeDataSet";
-            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button1
             // 
@@ -86,17 +78,12 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "RegistrarStaffHome";
             this.Text = "Registrar Staff Home";
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.BindingSource enquadeDataSetBindingSource;
-        private enquadeDataSet enquadeDataSet;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;

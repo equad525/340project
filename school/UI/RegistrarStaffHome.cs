@@ -15,26 +15,22 @@ namespace school
         public RegistrarStaffHome()
         {
             InitializeComponent();
+            comboBox1.Items.Add("Students");
+            comboBox1.Items.Add("Staff");
+            comboBox1.Items.Add("Courses");
+            comboBox1.Items.Add("Sections");
+            comboBox1.Items.Add("Enrolls");
+            comboBox1.Items.Add("Authorizations");
+            comboBox1.Items.Add("Fixed Fees");
+            comboBox1.Items.Add("Variable Fee Rates");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var tableToLoad = comboBox1.SelectedValue;
-            //if tableToLoad.Equals()
-            // check what which table was selected
-            // depending on which table was selected, assign variables to be used in filder
-
-            string filter = "Name = '" + "'";
-
-            //depending on which table was selected, add filter to that table
-            DataRow[] rows = this.enquadeDataSet.Tb_Product.Select(filter);
-
+            string tableToLoad = Convert.ToString(comboBox1.SelectedItem);
 
             RegistrarEdit editThis = new RegistrarEdit();
-            // bind gridview in RegistatEdit
-            editThis.dataGridView1.DataSource = rows.CopyToDataTable();
-            // open RegistarEdit
-            editThis.Show();
+            editThis.Show(tableToLoad);
         }
     }
 }

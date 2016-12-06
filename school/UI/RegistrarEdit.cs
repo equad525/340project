@@ -16,5 +16,27 @@ namespace school
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegistrarEdit_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'enquadeDataSet.authorizations' table. You can move, or remove it, as needed.
+            this.authorizationsTableAdapter.Fill(this.enquadeDataSet.authorizations);
+
+        }
     }
 }

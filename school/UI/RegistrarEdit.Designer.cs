@@ -35,9 +35,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.authorizationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.authorizationsTableAdapter = new school.enquadeDataSetTableAdapters.authorizationsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -68,6 +71,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Accept Changes";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -77,6 +81,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Cancel Changes";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -86,6 +91,16 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Back To Home";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // authorizationsBindingSource
+            // 
+            this.authorizationsBindingSource.DataMember = "authorizations";
+            this.authorizationsBindingSource.DataSource = this.enquadeDataSet;
+            // 
+            // authorizationsTableAdapter
+            // 
+            this.authorizationsTableAdapter.ClearBeforeFill = true;
             // 
             // RegistrarEdit
             // 
@@ -98,9 +113,11 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "RegistrarEdit";
             this.Text = "RegistrarEdit";
+            this.Load += new System.EventHandler(this.RegistrarEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -113,5 +130,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource authorizationsBindingSource;
+        private enquadeDataSetTableAdapters.authorizationsTableAdapter authorizationsTableAdapter;
     }
 }
