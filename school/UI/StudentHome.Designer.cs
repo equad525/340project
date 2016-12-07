@@ -117,6 +117,123 @@
             ((System.ComponentModel.ISupportInitialize)(this.enrollsDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
+            // termLabel
+            // 
+            termLabel.AutoSize = true;
+            termLabel.Location = new System.Drawing.Point(12, 28);
+            termLabel.Name = "termLabel";
+            termLabel.Size = new System.Drawing.Size(30, 13);
+            termLabel.TabIndex = 0;
+            termLabel.Text = "term:";
+            // 
+            // yearLabel
+            // 
+            yearLabel.AutoSize = true;
+            yearLabel.Location = new System.Drawing.Point(12, 54);
+            yearLabel.Name = "yearLabel";
+            yearLabel.Size = new System.Drawing.Size(30, 13);
+            yearLabel.TabIndex = 2;
+            yearLabel.Text = "year:";
+            // 
+            // crnLabel
+            // 
+            crnLabel.AutoSize = true;
+            crnLabel.Location = new System.Drawing.Point(12, 80);
+            crnLabel.Name = "crnLabel";
+            crnLabel.Size = new System.Drawing.Size(25, 13);
+            crnLabel.TabIndex = 4;
+            crnLabel.Text = "crn:";
+            // 
+            // cprefixLabel
+            // 
+            cprefixLabel.AutoSize = true;
+            cprefixLabel.Location = new System.Drawing.Point(12, 106);
+            cprefixLabel.Name = "cprefixLabel";
+            cprefixLabel.Size = new System.Drawing.Size(41, 13);
+            cprefixLabel.TabIndex = 6;
+            cprefixLabel.Text = "cprefix:";
+            // 
+            // cnoLabel
+            // 
+            cnoLabel.AutoSize = true;
+            cnoLabel.Location = new System.Drawing.Point(12, 132);
+            cnoLabel.Name = "cnoLabel";
+            cnoLabel.Size = new System.Drawing.Size(28, 13);
+            cnoLabel.TabIndex = 8;
+            cnoLabel.Text = "cno:";
+            // 
+            // sectionLabel
+            // 
+            sectionLabel.AutoSize = true;
+            sectionLabel.Location = new System.Drawing.Point(12, 158);
+            sectionLabel.Name = "sectionLabel";
+            sectionLabel.Size = new System.Drawing.Size(44, 13);
+            sectionLabel.TabIndex = 10;
+            sectionLabel.Text = "section:";
+            // 
+            // daysLabel
+            // 
+            daysLabel.AutoSize = true;
+            daysLabel.Location = new System.Drawing.Point(12, 184);
+            daysLabel.Name = "daysLabel";
+            daysLabel.Size = new System.Drawing.Size(32, 13);
+            daysLabel.TabIndex = 12;
+            daysLabel.Text = "days:";
+            // 
+            // startTimeLabel
+            // 
+            startTimeLabel.AutoSize = true;
+            startTimeLabel.Location = new System.Drawing.Point(12, 210);
+            startTimeLabel.Name = "startTimeLabel";
+            startTimeLabel.Size = new System.Drawing.Size(56, 13);
+            startTimeLabel.TabIndex = 14;
+            startTimeLabel.Text = "start Time:";
+            // 
+            // endTimeLabel
+            // 
+            endTimeLabel.AutoSize = true;
+            endTimeLabel.Location = new System.Drawing.Point(12, 236);
+            endTimeLabel.Name = "endTimeLabel";
+            endTimeLabel.Size = new System.Drawing.Size(54, 13);
+            endTimeLabel.TabIndex = 16;
+            endTimeLabel.Text = "end Time:";
+            // 
+            // roomLabel
+            // 
+            roomLabel.AutoSize = true;
+            roomLabel.Location = new System.Drawing.Point(12, 262);
+            roomLabel.Name = "roomLabel";
+            roomLabel.Size = new System.Drawing.Size(33, 13);
+            roomLabel.TabIndex = 18;
+            roomLabel.Text = "room:";
+            // 
+            // capLabel
+            // 
+            capLabel.AutoSize = true;
+            capLabel.Location = new System.Drawing.Point(12, 288);
+            capLabel.Name = "capLabel";
+            capLabel.Size = new System.Drawing.Size(28, 13);
+            capLabel.TabIndex = 20;
+            capLabel.Text = "cap:";
+            // 
+            // instructorLabel
+            // 
+            instructorLabel.AutoSize = true;
+            instructorLabel.Location = new System.Drawing.Point(12, 314);
+            instructorLabel.Name = "instructorLabel";
+            instructorLabel.Size = new System.Drawing.Size(53, 13);
+            instructorLabel.TabIndex = 22;
+            instructorLabel.Text = "instructor:";
+            // 
+            // authLabel
+            // 
+            authLabel.AutoSize = true;
+            authLabel.Location = new System.Drawing.Point(12, 340);
+            authLabel.Name = "authLabel";
+            authLabel.Size = new System.Drawing.Size(31, 13);
+            authLabel.TabIndex = 24;
+            authLabel.Text = "auth:";
+            // 
             // staffBindingSource
             // 
             this.staffBindingSource.DataMember = "staff";
@@ -159,15 +276,6 @@
             // 
             this.sectionsTableAdapter.ClearBeforeFill = true;
             // 
-            // termLabel
-            // 
-            termLabel.AutoSize = true;
-            termLabel.Location = new System.Drawing.Point(12, 28);
-            termLabel.Name = "termLabel";
-            termLabel.Size = new System.Drawing.Size(30, 13);
-            termLabel.TabIndex = 0;
-            termLabel.Text = "term:";
-            // 
             // termTextBox
             // 
             this.termTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "term", true));
@@ -175,15 +283,6 @@
             this.termTextBox.Name = "termTextBox";
             this.termTextBox.Size = new System.Drawing.Size(100, 20);
             this.termTextBox.TabIndex = 1;
-            // 
-            // yearLabel
-            // 
-            yearLabel.AutoSize = true;
-            yearLabel.Location = new System.Drawing.Point(12, 54);
-            yearLabel.Name = "yearLabel";
-            yearLabel.Size = new System.Drawing.Size(30, 13);
-            yearLabel.TabIndex = 2;
-            yearLabel.Text = "year:";
             // 
             // yearTextBox
             // 
@@ -193,15 +292,6 @@
             this.yearTextBox.Size = new System.Drawing.Size(100, 20);
             this.yearTextBox.TabIndex = 3;
             // 
-            // crnLabel
-            // 
-            crnLabel.AutoSize = true;
-            crnLabel.Location = new System.Drawing.Point(12, 80);
-            crnLabel.Name = "crnLabel";
-            crnLabel.Size = new System.Drawing.Size(25, 13);
-            crnLabel.TabIndex = 4;
-            crnLabel.Text = "crn:";
-            // 
             // crnTextBox
             // 
             this.crnTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "crn", true));
@@ -209,15 +299,6 @@
             this.crnTextBox.Name = "crnTextBox";
             this.crnTextBox.Size = new System.Drawing.Size(100, 20);
             this.crnTextBox.TabIndex = 5;
-            // 
-            // cprefixLabel
-            // 
-            cprefixLabel.AutoSize = true;
-            cprefixLabel.Location = new System.Drawing.Point(12, 106);
-            cprefixLabel.Name = "cprefixLabel";
-            cprefixLabel.Size = new System.Drawing.Size(41, 13);
-            cprefixLabel.TabIndex = 6;
-            cprefixLabel.Text = "cprefix:";
             // 
             // cprefixTextBox
             // 
@@ -227,15 +308,6 @@
             this.cprefixTextBox.Size = new System.Drawing.Size(100, 20);
             this.cprefixTextBox.TabIndex = 7;
             // 
-            // cnoLabel
-            // 
-            cnoLabel.AutoSize = true;
-            cnoLabel.Location = new System.Drawing.Point(12, 132);
-            cnoLabel.Name = "cnoLabel";
-            cnoLabel.Size = new System.Drawing.Size(28, 13);
-            cnoLabel.TabIndex = 8;
-            cnoLabel.Text = "cno:";
-            // 
             // cnoTextBox
             // 
             this.cnoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "cno", true));
@@ -243,15 +315,6 @@
             this.cnoTextBox.Name = "cnoTextBox";
             this.cnoTextBox.Size = new System.Drawing.Size(100, 20);
             this.cnoTextBox.TabIndex = 9;
-            // 
-            // sectionLabel
-            // 
-            sectionLabel.AutoSize = true;
-            sectionLabel.Location = new System.Drawing.Point(12, 158);
-            sectionLabel.Name = "sectionLabel";
-            sectionLabel.Size = new System.Drawing.Size(44, 13);
-            sectionLabel.TabIndex = 10;
-            sectionLabel.Text = "section:";
             // 
             // sectionTextBox
             // 
@@ -261,15 +324,6 @@
             this.sectionTextBox.Size = new System.Drawing.Size(100, 20);
             this.sectionTextBox.TabIndex = 11;
             // 
-            // daysLabel
-            // 
-            daysLabel.AutoSize = true;
-            daysLabel.Location = new System.Drawing.Point(12, 184);
-            daysLabel.Name = "daysLabel";
-            daysLabel.Size = new System.Drawing.Size(32, 13);
-            daysLabel.TabIndex = 12;
-            daysLabel.Text = "days:";
-            // 
             // daysTextBox
             // 
             this.daysTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "days", true));
@@ -277,15 +331,6 @@
             this.daysTextBox.Name = "daysTextBox";
             this.daysTextBox.Size = new System.Drawing.Size(100, 20);
             this.daysTextBox.TabIndex = 13;
-            // 
-            // startTimeLabel
-            // 
-            startTimeLabel.AutoSize = true;
-            startTimeLabel.Location = new System.Drawing.Point(12, 210);
-            startTimeLabel.Name = "startTimeLabel";
-            startTimeLabel.Size = new System.Drawing.Size(56, 13);
-            startTimeLabel.TabIndex = 14;
-            startTimeLabel.Text = "start Time:";
             // 
             // startTimeTextBox
             // 
@@ -295,15 +340,6 @@
             this.startTimeTextBox.Size = new System.Drawing.Size(100, 20);
             this.startTimeTextBox.TabIndex = 15;
             // 
-            // endTimeLabel
-            // 
-            endTimeLabel.AutoSize = true;
-            endTimeLabel.Location = new System.Drawing.Point(12, 236);
-            endTimeLabel.Name = "endTimeLabel";
-            endTimeLabel.Size = new System.Drawing.Size(54, 13);
-            endTimeLabel.TabIndex = 16;
-            endTimeLabel.Text = "end Time:";
-            // 
             // endTimeTextBox
             // 
             this.endTimeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "endTime", true));
@@ -311,15 +347,6 @@
             this.endTimeTextBox.Name = "endTimeTextBox";
             this.endTimeTextBox.Size = new System.Drawing.Size(100, 20);
             this.endTimeTextBox.TabIndex = 17;
-            // 
-            // roomLabel
-            // 
-            roomLabel.AutoSize = true;
-            roomLabel.Location = new System.Drawing.Point(12, 262);
-            roomLabel.Name = "roomLabel";
-            roomLabel.Size = new System.Drawing.Size(33, 13);
-            roomLabel.TabIndex = 18;
-            roomLabel.Text = "room:";
             // 
             // roomTextBox
             // 
@@ -329,15 +356,6 @@
             this.roomTextBox.Size = new System.Drawing.Size(100, 20);
             this.roomTextBox.TabIndex = 19;
             // 
-            // capLabel
-            // 
-            capLabel.AutoSize = true;
-            capLabel.Location = new System.Drawing.Point(12, 288);
-            capLabel.Name = "capLabel";
-            capLabel.Size = new System.Drawing.Size(28, 13);
-            capLabel.TabIndex = 20;
-            capLabel.Text = "cap:";
-            // 
             // capTextBox
             // 
             this.capTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "cap", true));
@@ -346,15 +364,6 @@
             this.capTextBox.Size = new System.Drawing.Size(100, 20);
             this.capTextBox.TabIndex = 21;
             // 
-            // instructorLabel
-            // 
-            instructorLabel.AutoSize = true;
-            instructorLabel.Location = new System.Drawing.Point(12, 314);
-            instructorLabel.Name = "instructorLabel";
-            instructorLabel.Size = new System.Drawing.Size(53, 13);
-            instructorLabel.TabIndex = 22;
-            instructorLabel.Text = "instructor:";
-            // 
             // instructorTextBox
             // 
             this.instructorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sectionsBindingSource, "instructor", true));
@@ -362,15 +371,6 @@
             this.instructorTextBox.Name = "instructorTextBox";
             this.instructorTextBox.Size = new System.Drawing.Size(100, 20);
             this.instructorTextBox.TabIndex = 23;
-            // 
-            // authLabel
-            // 
-            authLabel.AutoSize = true;
-            authLabel.Location = new System.Drawing.Point(12, 340);
-            authLabel.Name = "authLabel";
-            authLabel.Size = new System.Drawing.Size(31, 13);
-            authLabel.TabIndex = 24;
-            authLabel.Text = "auth:";
             // 
             // authTextBox
             // 
@@ -457,6 +457,7 @@
             // 
             this.variableFeeRateBindingSource.DataMember = "variableFeeRate";
             this.variableFeeRateBindingSource.DataSource = this.enquadeDataSet;
+            this.variableFeeRateBindingSource.Filter = "";
             // 
             // variableFeeRateTableAdapter
             // 

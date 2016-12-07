@@ -22,3 +22,4 @@ E:\CIS 340\project\school\340project_12-2-16\school\obj\Debug\school.Properties.
 E:\CIS 340\project\school\340project_12-2-16\school\obj\Debug\school.csproj.GenerateResource.Cache
 E:\CIS 340\project\school\340project_12-2-16\school\obj\Debug\school.exe
 E:\CIS 340\project\school\340project_12-2-16\school\obj\Debug\school.pdb
+E:\CIS 340\project\school\340project_12-2-16\school\obj\Debug\school.csprojResolveAssemblyReference.cache
