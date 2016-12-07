@@ -29,30 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label termLabel;
-            System.Windows.Forms.Label yearLabel;
-            System.Windows.Forms.Label crnLabel;
-            System.Windows.Forms.Label sidLabel;
-            System.Windows.Forms.Label authTypeLabel;
-            System.Windows.Forms.Label sidLabel1;
-            System.Windows.Forms.Label fnameLabel;
-            System.Windows.Forms.Label lnameLabel;
-            System.Windows.Forms.Label sTypeLabel;
-            System.Windows.Forms.Label gradAssistantLabel;
-            this.label1 = new System.Windows.Forms.Label();
             this.enquadeDataSet = new school.enquadeDataSet();
             this.authorizationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.authorizationsTableAdapter = new school.enquadeDataSetTableAdapters.authorizationsTableAdapter();
             this.tableAdapterManager = new school.enquadeDataSetTableAdapters.TableAdapterManager();
-            this.termTextBox = new System.Windows.Forms.TextBox();
-            this.yearTextBox = new System.Windows.Forms.TextBox();
-            this.crnTextBox = new System.Windows.Forms.TextBox();
-            this.sidTextBox = new System.Windows.Forms.TextBox();
-            this.authTypeTextBox = new System.Windows.Forms.TextBox();
+            this.sectionsTableAdapter = new school.enquadeDataSetTableAdapters.sectionsTableAdapter();
+            this.studentsTableAdapter = new school.enquadeDataSetTableAdapters.studentsTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
             this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sectionsTableAdapter = new school.enquadeDataSetTableAdapters.sectionsTableAdapter();
-            this.sectionsDataGridView = new System.Windows.Forms.DataGridView();
+            this.instructorSectionsView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,39 +53,37 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentsTableAdapter = new school.enquadeDataSetTableAdapters.studentsTableAdapter();
-            this.sidTextBox1 = new System.Windows.Forms.TextBox();
-            this.fnameTextBox = new System.Windows.Forms.TextBox();
-            this.lnameTextBox = new System.Windows.Forms.TextBox();
-            this.sTypeTextBox = new System.Windows.Forms.TextBox();
-            this.gradAssistantTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            termLabel = new System.Windows.Forms.Label();
-            yearLabel = new System.Windows.Forms.Label();
-            crnLabel = new System.Windows.Forms.Label();
-            sidLabel = new System.Windows.Forms.Label();
-            authTypeLabel = new System.Windows.Forms.Label();
-            sidLabel1 = new System.Windows.Forms.Label();
-            fnameLabel = new System.Windows.Forms.Label();
-            lnameLabel = new System.Windows.Forms.Label();
-            sTypeLabel = new System.Windows.Forms.Label();
-            gradAssistantLabel = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.standardAuth = new System.Windows.Forms.RadioButton();
+            this.overflowAuth = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.gradAssistantGridView = new System.Windows.Forms.DataGridView();
+            this.sidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.enquadeDataSet1 = new school.enquadeDataSet();
+            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.staffTableAdapter = new school.enquadeDataSetTableAdapters.staffTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sectionsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instructorSectionsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gradAssistantGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Grant a student an authorization";
             // 
             // enquadeDataSet
             // 
@@ -135,114 +118,34 @@
             this.tableAdapterManager.UpdateOrder = school.enquadeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.variableFeeRateTableAdapter = null;
             // 
-            // termLabel
+            // sectionsTableAdapter
             // 
-            termLabel.AutoSize = true;
-            termLabel.Location = new System.Drawing.Point(12, 39);
-            termLabel.Name = "termLabel";
-            termLabel.Size = new System.Drawing.Size(30, 13);
-            termLabel.TabIndex = 1;
-            termLabel.Text = "term:";
+            this.sectionsTableAdapter.ClearBeforeFill = true;
             // 
-            // termTextBox
+            // studentsTableAdapter
             // 
-            this.termTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.authorizationsBindingSource, "term", true));
-            this.termTextBox.Location = new System.Drawing.Point(76, 36);
-            this.termTextBox.Name = "termTextBox";
-            this.termTextBox.Size = new System.Drawing.Size(100, 20);
-            this.termTextBox.TabIndex = 2;
-            // 
-            // yearLabel
-            // 
-            yearLabel.AutoSize = true;
-            yearLabel.Location = new System.Drawing.Point(12, 65);
-            yearLabel.Name = "yearLabel";
-            yearLabel.Size = new System.Drawing.Size(30, 13);
-            yearLabel.TabIndex = 3;
-            yearLabel.Text = "year:";
-            // 
-            // yearTextBox
-            // 
-            this.yearTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.authorizationsBindingSource, "year", true));
-            this.yearTextBox.Location = new System.Drawing.Point(76, 62);
-            this.yearTextBox.Name = "yearTextBox";
-            this.yearTextBox.Size = new System.Drawing.Size(100, 20);
-            this.yearTextBox.TabIndex = 4;
-            // 
-            // crnLabel
-            // 
-            crnLabel.AutoSize = true;
-            crnLabel.Location = new System.Drawing.Point(12, 91);
-            crnLabel.Name = "crnLabel";
-            crnLabel.Size = new System.Drawing.Size(25, 13);
-            crnLabel.TabIndex = 5;
-            crnLabel.Text = "crn:";
-            // 
-            // crnTextBox
-            // 
-            this.crnTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.authorizationsBindingSource, "crn", true));
-            this.crnTextBox.Location = new System.Drawing.Point(76, 88);
-            this.crnTextBox.Name = "crnTextBox";
-            this.crnTextBox.Size = new System.Drawing.Size(100, 20);
-            this.crnTextBox.TabIndex = 6;
-            // 
-            // sidLabel
-            // 
-            sidLabel.AutoSize = true;
-            sidLabel.Location = new System.Drawing.Point(12, 117);
-            sidLabel.Name = "sidLabel";
-            sidLabel.Size = new System.Drawing.Size(23, 13);
-            sidLabel.TabIndex = 7;
-            sidLabel.Text = "sid:";
-            // 
-            // sidTextBox
-            // 
-            this.sidTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.authorizationsBindingSource, "sid", true));
-            this.sidTextBox.Location = new System.Drawing.Point(76, 114);
-            this.sidTextBox.Name = "sidTextBox";
-            this.sidTextBox.Size = new System.Drawing.Size(100, 20);
-            this.sidTextBox.TabIndex = 8;
-            // 
-            // authTypeLabel
-            // 
-            authTypeLabel.AutoSize = true;
-            authTypeLabel.Location = new System.Drawing.Point(12, 143);
-            authTypeLabel.Name = "authTypeLabel";
-            authTypeLabel.Size = new System.Drawing.Size(58, 13);
-            authTypeLabel.TabIndex = 9;
-            authTypeLabel.Text = "auth Type:";
-            // 
-            // authTypeTextBox
-            // 
-            this.authTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.authorizationsBindingSource, "authType", true));
-            this.authTypeTextBox.Location = new System.Drawing.Point(76, 140);
-            this.authTypeTextBox.Name = "authTypeTextBox";
-            this.authTypeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.authTypeTextBox.TabIndex = 10;
+            this.studentsTableAdapter.ClearBeforeFill = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 179);
+            this.button1.Location = new System.Drawing.Point(12, 179);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(157, 38);
             this.button1.TabIndex = 11;
             this.button1.Text = "Grant Authorization";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.GrantAuth_Click);
             // 
             // sectionsBindingSource
             // 
             this.sectionsBindingSource.DataMember = "sections";
             this.sectionsBindingSource.DataSource = this.enquadeDataSet;
             // 
-            // sectionsTableAdapter
+            // instructorSectionsView
             // 
-            this.sectionsTableAdapter.ClearBeforeFill = true;
-            // 
-            // sectionsDataGridView
-            // 
-            this.sectionsDataGridView.AutoGenerateColumns = false;
-            this.sectionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.sectionsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.instructorSectionsView.AutoGenerateColumns = false;
+            this.instructorSectionsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.instructorSectionsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -256,11 +159,11 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13});
-            this.sectionsDataGridView.DataSource = this.sectionsBindingSource;
-            this.sectionsDataGridView.Location = new System.Drawing.Point(12, 282);
-            this.sectionsDataGridView.Name = "sectionsDataGridView";
-            this.sectionsDataGridView.Size = new System.Drawing.Size(870, 220);
-            this.sectionsDataGridView.TabIndex = 12;
+            this.instructorSectionsView.DataSource = this.sectionsBindingSource;
+            this.instructorSectionsView.Location = new System.Drawing.Point(203, 325);
+            this.instructorSectionsView.Name = "instructorSectionsView";
+            this.instructorSectionsView.Size = new System.Drawing.Size(687, 234);
+            this.instructorSectionsView.TabIndex = 12;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -343,9 +246,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 263);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 325);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 13);
+            this.label2.Size = new System.Drawing.Size(185, 16);
             this.label2.TabIndex = 13;
             this.label2.Text = "View instructor\'s class list";
             // 
@@ -354,174 +258,254 @@
             this.studentsBindingSource.DataMember = "students";
             this.studentsBindingSource.DataSource = this.enquadeDataSet;
             // 
-            // studentsTableAdapter
-            // 
-            this.studentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // sidLabel1
-            // 
-            sidLabel1.AutoSize = true;
-            sidLabel1.Location = new System.Drawing.Point(248, 36);
-            sidLabel1.Name = "sidLabel1";
-            sidLabel1.Size = new System.Drawing.Size(23, 13);
-            sidLabel1.TabIndex = 14;
-            sidLabel1.Text = "sid:";
-            // 
-            // sidTextBox1
-            // 
-            this.sidTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "sid", true));
-            this.sidTextBox1.Location = new System.Drawing.Point(330, 33);
-            this.sidTextBox1.Name = "sidTextBox1";
-            this.sidTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.sidTextBox1.TabIndex = 15;
-            // 
-            // fnameLabel
-            // 
-            fnameLabel.AutoSize = true;
-            fnameLabel.Location = new System.Drawing.Point(248, 88);
-            fnameLabel.Name = "fnameLabel";
-            fnameLabel.Size = new System.Drawing.Size(39, 13);
-            fnameLabel.TabIndex = 18;
-            fnameLabel.Text = "fname:";
-            // 
-            // fnameTextBox
-            // 
-            this.fnameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "fname", true));
-            this.fnameTextBox.Location = new System.Drawing.Point(330, 85);
-            this.fnameTextBox.Name = "fnameTextBox";
-            this.fnameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.fnameTextBox.TabIndex = 19;
-            // 
-            // lnameLabel
-            // 
-            lnameLabel.AutoSize = true;
-            lnameLabel.Location = new System.Drawing.Point(248, 114);
-            lnameLabel.Name = "lnameLabel";
-            lnameLabel.Size = new System.Drawing.Size(38, 13);
-            lnameLabel.TabIndex = 20;
-            lnameLabel.Text = "lname:";
-            // 
-            // lnameTextBox
-            // 
-            this.lnameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "lname", true));
-            this.lnameTextBox.Location = new System.Drawing.Point(330, 111);
-            this.lnameTextBox.Name = "lnameTextBox";
-            this.lnameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.lnameTextBox.TabIndex = 21;
-            // 
-            // sTypeLabel
-            // 
-            sTypeLabel.AutoSize = true;
-            sTypeLabel.Location = new System.Drawing.Point(248, 63);
-            sTypeLabel.Name = "sTypeLabel";
-            sTypeLabel.Size = new System.Drawing.Size(42, 13);
-            sTypeLabel.TabIndex = 22;
-            sTypeLabel.Text = "s Type:";
-            // 
-            // sTypeTextBox
-            // 
-            this.sTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "sType", true));
-            this.sTypeTextBox.Location = new System.Drawing.Point(330, 60);
-            this.sTypeTextBox.Name = "sTypeTextBox";
-            this.sTypeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.sTypeTextBox.TabIndex = 23;
-            // 
-            // gradAssistantLabel
-            // 
-            gradAssistantLabel.AutoSize = true;
-            gradAssistantLabel.Location = new System.Drawing.Point(248, 141);
-            gradAssistantLabel.Name = "gradAssistantLabel";
-            gradAssistantLabel.Size = new System.Drawing.Size(76, 13);
-            gradAssistantLabel.TabIndex = 26;
-            gradAssistantLabel.Text = "grad Assistant:";
-            // 
-            // gradAssistantTextBox
-            // 
-            this.gradAssistantTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "gradAssistant", true));
-            this.gradAssistantTextBox.Location = new System.Drawing.Point(330, 138);
-            this.gradAssistantTextBox.Name = "gradAssistantTextBox";
-            this.gradAssistantTextBox.Size = new System.Drawing.Size(100, 20);
-            this.gradAssistantTextBox.TabIndex = 27;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(251, 13);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(251, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 13);
+            this.label3.Size = new System.Drawing.Size(236, 16);
             this.label3.TabIndex = 28;
             this.label3.Text = "Add assistantship info for student";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(249, 179);
+            this.button2.Location = new System.Drawing.Point(254, 82);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(181, 38);
             this.button2.TabIndex = 29;
             this.button2.Text = "Accept assistantship change";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.AddAssistantshipInfo_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.studentsBindingSource;
+            this.comboBox1.DisplayMember = "fname";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(12, 55);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 30;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DataSource = this.sectionsBindingSource;
+            this.comboBox2.DisplayMember = "cprefix";
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(12, 106);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 31;
+            // 
+            // standardAuth
+            // 
+            this.standardAuth.AutoSize = true;
+            this.standardAuth.Checked = true;
+            this.standardAuth.Location = new System.Drawing.Point(12, 133);
+            this.standardAuth.Name = "standardAuth";
+            this.standardAuth.Size = new System.Drawing.Size(132, 17);
+            this.standardAuth.TabIndex = 32;
+            this.standardAuth.TabStop = true;
+            this.standardAuth.Text = "Standard Authorization";
+            this.standardAuth.UseVisualStyleBackColor = true;
+            // 
+            // overflowAuth
+            // 
+            this.overflowAuth.AutoSize = true;
+            this.overflowAuth.Location = new System.Drawing.Point(12, 156);
+            this.overflowAuth.Name = "overflowAuth";
+            this.overflowAuth.Size = new System.Drawing.Size(67, 17);
+            this.overflowAuth.TabIndex = 33;
+            this.overflowAuth.Text = "Overflow";
+            this.overflowAuth.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "Section";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 39);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Student";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DataSource = this.studentsBindingSource;
+            this.comboBox3.DisplayMember = "fname";
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(254, 55);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.TabIndex = 36;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(251, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "Student";
+            // 
+            // gradAssistantGridView
+            // 
+            this.gradAssistantGridView.AllowUserToAddRows = false;
+            this.gradAssistantGridView.AllowUserToDeleteRows = false;
+            this.gradAssistantGridView.AutoGenerateColumns = false;
+            this.gradAssistantGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gradAssistantGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sidDataGridViewTextBoxColumn,
+            this.fnameDataGridViewTextBoxColumn,
+            this.lnameDataGridViewTextBoxColumn,
+            this.sTypeDataGridViewTextBoxColumn});
+            this.gradAssistantGridView.DataSource = this.studentsBindingSource;
+            this.gradAssistantGridView.Location = new System.Drawing.Point(254, 156);
+            this.gradAssistantGridView.Name = "gradAssistantGridView";
+            this.gradAssistantGridView.ReadOnly = true;
+            this.gradAssistantGridView.Size = new System.Drawing.Size(240, 120);
+            this.gradAssistantGridView.TabIndex = 38;
+            // 
+            // sidDataGridViewTextBoxColumn
+            // 
+            this.sidDataGridViewTextBoxColumn.DataPropertyName = "sid";
+            this.sidDataGridViewTextBoxColumn.HeaderText = "sid";
+            this.sidDataGridViewTextBoxColumn.Name = "sidDataGridViewTextBoxColumn";
+            this.sidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fnameDataGridViewTextBoxColumn
+            // 
+            this.fnameDataGridViewTextBoxColumn.DataPropertyName = "fname";
+            this.fnameDataGridViewTextBoxColumn.HeaderText = "fname";
+            this.fnameDataGridViewTextBoxColumn.Name = "fnameDataGridViewTextBoxColumn";
+            this.fnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lnameDataGridViewTextBoxColumn
+            // 
+            this.lnameDataGridViewTextBoxColumn.DataPropertyName = "lname";
+            this.lnameDataGridViewTextBoxColumn.HeaderText = "lname";
+            this.lnameDataGridViewTextBoxColumn.Name = "lnameDataGridViewTextBoxColumn";
+            this.lnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sTypeDataGridViewTextBoxColumn
+            // 
+            this.sTypeDataGridViewTextBoxColumn.DataPropertyName = "sType";
+            this.sTypeDataGridViewTextBoxColumn.HeaderText = "sType";
+            this.sTypeDataGridViewTextBoxColumn.Name = "sTypeDataGridViewTextBoxColumn";
+            this.sTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(251, 135);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(117, 13);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "Current Grad Assistants";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DataSource = this.sectionsBindingSource;
+            this.comboBox4.DisplayMember = "instructor";
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(12, 370);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(149, 21);
+            this.comboBox4.TabIndex = 41;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 354);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.TabIndex = 42;
+            this.label8.Text = "Instructor";
+            // 
+            // enquadeDataSet1
+            // 
+            this.enquadeDataSet1.DataSetName = "enquadeDataSet";
+            this.enquadeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // staffBindingSource
+            // 
+            this.staffBindingSource.DataMember = "staff";
+            this.staffBindingSource.DataSource = this.enquadeDataSet1;
+            // 
+            // staffTableAdapter
+            // 
+            this.staffTableAdapter.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(225, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Grant a student an authorization";
             // 
             // DepartmentStaffHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 571);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.gradAssistantGridView);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.overflowAuth);
+            this.Controls.Add(this.standardAuth);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(sidLabel1);
-            this.Controls.Add(this.sidTextBox1);
-            this.Controls.Add(fnameLabel);
-            this.Controls.Add(this.fnameTextBox);
-            this.Controls.Add(lnameLabel);
-            this.Controls.Add(this.lnameTextBox);
-            this.Controls.Add(sTypeLabel);
-            this.Controls.Add(this.sTypeTextBox);
-            this.Controls.Add(gradAssistantLabel);
-            this.Controls.Add(this.gradAssistantTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.sectionsDataGridView);
+            this.Controls.Add(this.instructorSectionsView);
             this.Controls.Add(this.button1);
-            this.Controls.Add(termLabel);
-            this.Controls.Add(this.termTextBox);
-            this.Controls.Add(yearLabel);
-            this.Controls.Add(this.yearTextBox);
-            this.Controls.Add(crnLabel);
-            this.Controls.Add(this.crnTextBox);
-            this.Controls.Add(sidLabel);
-            this.Controls.Add(this.sidTextBox);
-            this.Controls.Add(authTypeLabel);
-            this.Controls.Add(this.authTypeTextBox);
             this.Controls.Add(this.label1);
             this.Name = "DepartmentStaffHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Department Staff Home";
             this.Load += new System.EventHandler(this.DepartmentStaffHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sectionsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instructorSectionsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gradAssistantGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private enquadeDataSet enquadeDataSet;
         private System.Windows.Forms.BindingSource authorizationsBindingSource;
         private enquadeDataSetTableAdapters.authorizationsTableAdapter authorizationsTableAdapter;
         private enquadeDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private enquadeDataSetTableAdapters.sectionsTableAdapter sectionsTableAdapter;
-        private System.Windows.Forms.TextBox termTextBox;
-        private System.Windows.Forms.TextBox yearTextBox;
-        private System.Windows.Forms.TextBox crnTextBox;
-        private System.Windows.Forms.TextBox sidTextBox;
-        private System.Windows.Forms.TextBox authTypeTextBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource sectionsBindingSource;
         private enquadeDataSetTableAdapters.studentsTableAdapter studentsTableAdapter;
-        private System.Windows.Forms.DataGridView sectionsDataGridView;
+        private System.Windows.Forms.DataGridView instructorSectionsView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -537,12 +521,27 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource studentsBindingSource;
-        private System.Windows.Forms.TextBox sidTextBox1;
-        private System.Windows.Forms.TextBox fnameTextBox;
-        private System.Windows.Forms.TextBox lnameTextBox;
-        private System.Windows.Forms.TextBox sTypeTextBox;
-        private System.Windows.Forms.TextBox gradAssistantTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.RadioButton standardAuth;
+        private System.Windows.Forms.RadioButton overflowAuth;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView gradAssistantGridView;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label8;
+        private enquadeDataSet enquadeDataSet1;
+        private System.Windows.Forms.BindingSource staffBindingSource;
+        private enquadeDataSetTableAdapters.staffTableAdapter staffTableAdapter;
+        private System.Windows.Forms.Label label1;
     }
 }

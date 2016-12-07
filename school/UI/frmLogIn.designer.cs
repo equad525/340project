@@ -93,6 +93,7 @@
             // 
             // frmLogIn
             // 
+            this.AcceptButton = this.btnLogIn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
@@ -103,6 +104,7 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label1);
             this.Name = "frmLogIn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
             this.ResumeLayout(false);
             this.PerformLayout();
