@@ -1,4 +1,5 @@
-﻿using schoolWorkVer;
+﻿using Model;
+using schoolWorkVer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,6 +77,7 @@ namespace school
                     Grade = null
                 };
                 Create<Enrolls>(newEnroll);
+                MessageBox.Show("You registered for " + _txtCrn);
             }
             else
             {
@@ -104,6 +106,43 @@ namespace school
         private void termTextBox_TextChanged(object sender, EventArgs e)
         {
             _txtTerm = this.termTextBox.ToString();
+        }
+
+        private void btnVariableFeeRate_Click(object sender, EventArgs e)
+        {
+            Students newStudent = new Students()
+            {
+                Sid = Convert.ToInt16(sidTextBox.Text),
+                SType = stypeComboBox.SelectedItem.ToString(),
+                InState = residencyStatusComboBox.SelectedItem.ToString()
+            };
+
+            List<VariableFeeRate> filter2 = Retrieve<VariableFeeRate>(
+                selectFields: new string[]
+                {
+                    "Fee"
+                }
+            );
+
+            VariableFeeRate filterRate = new VariableFeeRate()
+            {
+                SType = stypeComboBox.SelectedItem.ToString(),
+                InOrOutOfState = residencyStatusComboBox.SelectedItem.ToString(),
+                Fee = Convert.ToDecimal(filter2)
+            };
+
+            //this.variableFeeRateTableAdapter.Fill(this.enquadeDataSet.variableFeeRate);
+            variableFeeRateBindingSource.DataSource = new DataView(enquadeDataSet.variableFeeRate).ToTable(true, "sType", "inOrOutOfState", "fee").Select("sid='" + newStudent.Sid + "'");
+        }
+
+        private void stypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            variableFeeRateDataGridView.DataSource = this.enquadeDataSet.variableFeeRate.Select("sType='" + ((DataRowView)stypeComboBox.SelectedItem).Row.Field<string>("sType") + "'");
+        }
+
+        private void enrollsBindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
