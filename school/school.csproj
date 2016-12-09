@@ -124,17 +124,17 @@
     <Compile Include="UI\RegistrarEdit\RegistrarEditCourses.Designer.cs">
       <DependentUpon>RegistrarEditCourses.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\StudentHome.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\StudentHome.Designer.cs">
-      <DependentUpon>StudentHome.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PD\Sections.cs" />
     <Compile Include="PD\Staff.cs" />
     <Compile Include="PD\Students.cs" />
+    <Compile Include="UI\StudentHome2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\StudentHome2.Designer.cs">
+      <DependentUpon>StudentHome2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Validator.cs" />
     <Compile Include="PD\VariableFeeRate.cs" />
     <EmbeddedResource Include="UI\DepartmentStaffHome.resx">
@@ -170,9 +170,6 @@
     <EmbeddedResource Include="UI\RegistrarEdit\RegistrarEditCourses.resx">
       <DependentUpon>RegistrarEditCourses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\StudentHome.resx">
-      <DependentUpon>StudentHome.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -182,6 +179,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\StudentHome2.resx">
+      <DependentUpon>StudentHome2.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="enquadeDataSet.xsc">
       <DependentUpon>enquadeDataSet.xsd</DependentUpon>
     </None>

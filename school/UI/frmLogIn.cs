@@ -1,6 +1,7 @@
 ﻿using CourseProject.PD;
 using Model;
 using school;
+using school.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Data.DataAccess;
 
 namespace CourseProject.UI
 {
@@ -51,9 +53,22 @@ namespace CourseProject.UI
 
                     List<Students> students = Main.Retrieve(txtUsername.Text);                    
                     this.Hide();
-                    frmStudentHome studentForm = new frmStudentHome(students[0]);
-                    studentForm.Show();
-                    studentForm.Closed += (s, args) => this.Show();
+                    //string stateStatus = "INSTATE";
+                    frmStudentHome2 rowSearch = new frmStudentHome2(students[0]);
+                    //if (students[0].InState == "Y")
+                    //{
+                    //    stateStatus = "INSTATE";
+                    //}
+                    //else
+                    //{
+                    //    stateStatus = "OUTOFSTATE";
+                    //}
+                    //string filter = "sType ='" + students[0].SType + "' AND inOrOutOfState ='" + stateStatus + "'";
+                    //DataRow[] dataRows = this.enquadeDataSet1.variableFeeRate.Select(filter);
+                    //frmStudentHome2 studentForm = new frmStudentHome2();
+                    //studentForm.varFeeDataGridView.DataSource = dataRows.CopyToDataTable();
+                    //studentForm.Show();
+                    //studentForm.Closed += (s, args) => this.Show();
                     clearLoginForm();
                 }
                 else

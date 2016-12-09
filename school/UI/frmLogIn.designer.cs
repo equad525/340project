@@ -34,6 +34,8 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogIn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.enquadeDataSet1 = new school.enquadeDataSet();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -91,6 +93,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // enquadeDataSet1
+            // 
+            this.enquadeDataSet1.DataSetName = "enquadeDataSet";
+            this.enquadeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // frmLogIn
             // 
             this.AcceptButton = this.btnLogIn;
@@ -106,6 +113,7 @@
             this.Name = "frmLogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,5 +127,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogIn;
         private System.Windows.Forms.Button button1;
+        private school.enquadeDataSet enquadeDataSet1;
     }
 }
