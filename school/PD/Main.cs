@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model;
+using static Data.DataAccess;
 
 namespace CourseProject.PD
 {
@@ -13,6 +15,17 @@ namespace CourseProject.PD
         {
             string trylogin = DataAccess.TryLogin(password,username);
             return trylogin;
+        }
+
+        internal static List<Students> Retrieve(string userName)
+        {
+            List<Students> students = Retrieve<Students>(
+                new List<Condition>()
+                {
+                    new Condition("sid", Condition.Operators.Equal, userName)
+                }
+            );
+            return students;
         }
     }
 }
