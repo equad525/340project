@@ -55,13 +55,13 @@
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.authStudentComboBox = new System.Windows.Forms.ComboBox();
+            this.authSectionComboBox = new System.Windows.Forms.ComboBox();
             this.standardAuth = new System.Windows.Forms.RadioButton();
             this.overflowAuth = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.gradStudentComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.gradAssistantGridView = new System.Windows.Forms.DataGridView();
             this.sidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +75,7 @@
             this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.staffTableAdapter = new school.enquadeDataSetTableAdapters.staffTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorizationsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).BeginInit();
@@ -160,9 +161,9 @@
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13});
             this.instructorSectionsView.DataSource = this.sectionsBindingSource;
-            this.instructorSectionsView.Location = new System.Drawing.Point(203, 325);
+            this.instructorSectionsView.Location = new System.Drawing.Point(254, 349);
             this.instructorSectionsView.Name = "instructorSectionsView";
-            this.instructorSectionsView.Size = new System.Drawing.Size(687, 234);
+            this.instructorSectionsView.Size = new System.Drawing.Size(636, 210);
             this.instructorSectionsView.TabIndex = 12;
             // 
             // dataGridViewTextBoxColumn1
@@ -247,7 +248,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 325);
+            this.label2.Location = new System.Drawing.Point(12, 349);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(185, 16);
             this.label2.TabIndex = 13;
@@ -278,25 +279,27 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.AddAssistantshipInfo_Click);
             // 
-            // comboBox1
+            // authStudentComboBox
             // 
-            this.comboBox1.DataSource = this.studentsBindingSource;
-            this.comboBox1.DisplayMember = "fname";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 55);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 30;
+            this.authStudentComboBox.DataSource = this.studentsBindingSource;
+            this.authStudentComboBox.DisplayMember = "fname";
+            this.authStudentComboBox.FormattingEnabled = true;
+            this.authStudentComboBox.Location = new System.Drawing.Point(12, 55);
+            this.authStudentComboBox.Name = "authStudentComboBox";
+            this.authStudentComboBox.Size = new System.Drawing.Size(121, 21);
+            this.authStudentComboBox.TabIndex = 30;
+            this.authStudentComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.authStudentComboBox_Format);
             // 
-            // comboBox2
+            // authSectionComboBox
             // 
-            this.comboBox2.DataSource = this.sectionsBindingSource;
-            this.comboBox2.DisplayMember = "cprefix";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(12, 106);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 31;
+            this.authSectionComboBox.DataSource = this.sectionsBindingSource;
+            this.authSectionComboBox.DisplayMember = "cprefix";
+            this.authSectionComboBox.FormattingEnabled = true;
+            this.authSectionComboBox.Location = new System.Drawing.Point(12, 106);
+            this.authSectionComboBox.Name = "authSectionComboBox";
+            this.authSectionComboBox.Size = new System.Drawing.Size(121, 21);
+            this.authSectionComboBox.TabIndex = 31;
+            this.authSectionComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.authSectionComboBox_Format);
             // 
             // standardAuth
             // 
@@ -338,15 +341,16 @@
             this.label5.TabIndex = 35;
             this.label5.Text = "Student";
             // 
-            // comboBox3
+            // gradStudentComboBox
             // 
-            this.comboBox3.DataSource = this.studentsBindingSource;
-            this.comboBox3.DisplayMember = "fname";
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(254, 55);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 36;
+            this.gradStudentComboBox.DataSource = this.studentsBindingSource;
+            this.gradStudentComboBox.DisplayMember = "fname";
+            this.gradStudentComboBox.FormattingEnabled = true;
+            this.gradStudentComboBox.Location = new System.Drawing.Point(254, 55);
+            this.gradStudentComboBox.Name = "gradStudentComboBox";
+            this.gradStudentComboBox.Size = new System.Drawing.Size(121, 21);
+            this.gradStudentComboBox.TabIndex = 36;
+            this.gradStudentComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.gradStudentComboBox_Format);
             // 
             // label6
             // 
@@ -372,7 +376,7 @@
             this.gradAssistantGridView.Location = new System.Drawing.Point(254, 156);
             this.gradAssistantGridView.Name = "gradAssistantGridView";
             this.gradAssistantGridView.ReadOnly = true;
-            this.gradAssistantGridView.Size = new System.Drawing.Size(240, 120);
+            this.gradAssistantGridView.Size = new System.Drawing.Size(445, 163);
             this.gradAssistantGridView.TabIndex = 38;
             // 
             // sidDataGridViewTextBoxColumn
@@ -417,16 +421,16 @@
             this.comboBox4.DataSource = this.sectionsBindingSource;
             this.comboBox4.DisplayMember = "instructor";
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(12, 370);
+            this.comboBox4.Location = new System.Drawing.Point(12, 394);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(149, 21);
+            this.comboBox4.Size = new System.Drawing.Size(225, 21);
             this.comboBox4.TabIndex = 41;
             this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 354);
+            this.label8.Location = new System.Drawing.Point(12, 378);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(51, 13);
             this.label8.TabIndex = 42;
@@ -456,23 +460,32 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Grant a student an authorization";
             // 
+            // label9
+            // 
+            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label9.Location = new System.Drawing.Point(-21, 334);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(1024, 2);
+            this.label9.TabIndex = 43;
+            // 
             // DepartmentStaffHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 571);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.gradAssistantGridView);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.gradStudentComboBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.overflowAuth);
             this.Controls.Add(this.standardAuth);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.authSectionComboBox);
+            this.Controls.Add(this.authStudentComboBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -523,13 +536,13 @@
         private System.Windows.Forms.BindingSource studentsBindingSource;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox authStudentComboBox;
+        private System.Windows.Forms.ComboBox authSectionComboBox;
         private System.Windows.Forms.RadioButton standardAuth;
         private System.Windows.Forms.RadioButton overflowAuth;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox gradStudentComboBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView gradAssistantGridView;
         private System.Windows.Forms.Label label7;
@@ -543,5 +556,6 @@
         private System.Windows.Forms.BindingSource staffBindingSource;
         private enquadeDataSetTableAdapters.staffTableAdapter staffTableAdapter;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using CourseProject.PD;
+using Data;
 using Model;
 using schoolWorkVer;
 using System;
@@ -16,9 +17,22 @@ namespace school
 {
     public partial class DepartmentStaffHome : Form
     {
-        public DepartmentStaffHome()
+        private Staff _user;
+
+        public DepartmentStaffHome(string tid)
         {
             InitializeComponent();
+            _user = Retrieve<Staff>(new List<Condition>()
+            {
+                new Condition()
+                {
+                    ConditionOperator = Condition.Operators.Equal,
+                    Left = "tid",
+                    Right = tid
+                }
+            })[0];
+
+            this.Text += " - Logged in as " + _user.Fname + " " + _user.Lname;
         }
 
         private void authorizationsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -35,7 +49,6 @@ namespace school
             this.staffTableAdapter.Fill(this.enquadeDataSet1.staff);
             // TODO: This line of code loads data into the 'enquadeDataSet.students' table. You can move, or remove it, as needed.
             this.studentsTableAdapter.Fill(this.enquadeDataSet.students);
-            gradAssistantGridView.DataSource = new DataView(enquadeDataSet.students).ToTable(true, "sid", "fname", "lname", "stype").Select("gradAssistant='Y'");
             // TODO: This line of code loads data into the 'enquadeDataSet.sections' table. You can move, or remove it, as needed.
             this.sectionsTableAdapter.Fill(this.enquadeDataSet.sections);
             // TODO: This line of code loads data into the 'enquadeDataSet.authorizations' table. You can move, or remove it, as needed.
@@ -44,12 +57,15 @@ namespace school
             DataTable testDistinct = new DataView(enquadeDataSet.sections).ToTable(true, "instructor");
             comboBox4.DataSource = testDistinct;
 
+            DataTable gradAssistants = new DataView(enquadeDataSet.students).ToTable(true, "sid", "fname", "lname", "sType", "gradAssistant");
+            gradAssistantGridView.DataSource = gradAssistants.Select("gradAssistant='Y'").CopyToDataTable();
+            
         }
 
         private void GrantAuth_Click(object sender, EventArgs e)
         {
-            DataRow studentData = ((DataRowView)comboBox1.SelectedItem).Row;
-            DataRow sectionData = ((DataRowView)comboBox2.SelectedItem).Row;
+            DataRow studentData = ((DataRowView)authStudentComboBox.SelectedItem).Row;
+            DataRow sectionData = ((DataRowView)authSectionComboBox.SelectedItem).Row;
 
             string authtype = standardAuth.Checked ? "AUTH" : "OVFL";
 
@@ -96,7 +112,7 @@ namespace school
 
         private void AddAssistantshipInfo_Click(object sender, EventArgs e)
         {
-            DataRow studentData = ((DataRowView)comboBox3.SelectedItem).Row;
+            DataRow studentData = ((DataRowView)gradStudentComboBox.SelectedItem).Row;
 
             Students newStu = new Students()
             {
@@ -128,6 +144,10 @@ namespace school
                     MessageBox.Show(studentData.Field<string>("fname") + " " + studentData.Field<string>("lname") +
                         " is now a Grad Assistant",
                         null, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.studentsTableAdapter.Fill(this.enquadeDataSet.students);
+                    DataTable gradAssistants = new DataView(enquadeDataSet.students).ToTable(true, "sid", "fname", "lname", "sType", "gradAssistant");
+                    gradAssistantGridView.DataSource = gradAssistants.Select("gradAssistant='Y'").CopyToDataTable();
                 }
                 else
                 {
@@ -140,22 +160,33 @@ namespace school
             }
         }
 
-        private void fillByGradAssistantToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.studentsTableAdapter.FillByGradAssistant(this.enquadeDataSet.students);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             instructorSectionsView.DataSource = this.enquadeDataSet.sections.Select("instructor='" + ((DataRowView)comboBox4.SelectedItem).Row.Field<string>("instructor") + "'");
+        }
+
+        private void authStudentComboBox_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string fname = ((DataRowView)e.ListItem).Row.Field<string>("fname");
+            string lname = ((DataRowView)e.ListItem).Row.Field<string>("lname");
+
+            e.Value = fname + " " + lname;
+        }
+
+        private void authSectionComboBox_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string pre = ((DataRowView)e.ListItem).Row.Field<string>("cprefix");
+            string crn = ((DataRowView)e.ListItem).Row.Field<int>("crn").ToString();
+
+            e.Value = pre + crn;
+        }
+
+        private void gradStudentComboBox_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string fname = ((DataRowView)e.ListItem).Row.Field<string>("fname");
+            string lname = ((DataRowView)e.ListItem).Row.Field<string>("lname");
+
+            e.Value = fname + " " + lname;
         }
     }
 }
