@@ -43,7 +43,7 @@ namespace CourseProject.UI
                 else if (trylogin.Equals("DepartmentStaff"))
                 {
                     this.Hide();
-                    DepartmentStaffHome deptStaffForm = new DepartmentStaffHome();
+                    DepartmentStaffHome deptStaffForm = new DepartmentStaffHome(txtUsername.Text);
                     deptStaffForm.Show();
                     deptStaffForm.Closed += (s, args) => this.Show();
                     clearLoginForm();
