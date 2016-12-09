@@ -1,4 +1,5 @@
 ﻿using CourseProject.PD;
+using Model;
 using school;
 using System;
 using System.Collections.Generic;
@@ -47,8 +48,10 @@ namespace CourseProject.UI
                 }
                 else if (trylogin.Equals("Student"))
                 {
+
+                    List<Students> students = Main.Retrieve(txtUsername.Text);                    
                     this.Hide();
-                    frmStudentHome studentForm = new frmStudentHome();
+                    frmStudentHome studentForm = new frmStudentHome(students[0]);
                     studentForm.Show();
                     studentForm.Closed += (s, args) => this.Show();
                     clearLoginForm();

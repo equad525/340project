@@ -16,9 +16,16 @@ namespace school
 {
     public partial class frmStudentHome : Form
     {
+        private Students students;
+
         public frmStudentHome()
         {
             InitializeComponent();
+        }
+
+        public frmStudentHome(Students students)
+        {
+            this.students = students;
         }
 
         public string _txtSudentId { get; set; }
@@ -51,6 +58,8 @@ namespace school
             // TODO: This line of code loads data into the 'enquadeDataSet.staff' table. You can move, or remove it, as needed.
             this.staffTableAdapter.Fill(this.enquadeDataSet.staff);
         }
+
+        
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
