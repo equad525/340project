@@ -88,3 +88,23 @@ E:\CIS 340\project\school\340project_12-9_16a\school\obj\Debug\school.csproj.Gen
 E:\CIS 340\project\school\340project_12-9_16a\school\obj\Debug\school.exe
 E:\CIS 340\project\school\340project_12-9_16a\school\obj\Debug\school.pdb
 E:\CIS 340\project\school\340project_12-9_16a\school\obj\Debug\school.UI.frmStudentHome2.resources
+C:\Users\equad525\Source\Repos\340project\school\bin\Debug\school.exe.config
+C:\Users\equad525\Source\Repos\340project\school\bin\Debug\school.exe
+C:\Users\equad525\Source\Repos\340project\school\bin\Debug\school.pdb
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.csprojResolveAssemblyReference.cache
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.DepartmentStaffHome.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\CourseProject.UI.frmLogIn.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.RegistrarEditAuthorizations.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.UI.RegistrarEdit.RegistrarEditEnrolls.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.UI.RegistrarEdit.RegistrarEditFixedFees.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.UI.RegistrarEdit.RegistrarEditSections.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.UI.RegistrarEdit.RegistrarEditStaff.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.UI.RegistrarEdit.RegistrarEditStudent.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.UI.RegistrarEdit.RegistrarEditVariableFees.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.RegistrarStaffHome.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.UI.RegistratEdit.RegistrarEditCourses.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.Properties.Resources.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.UI.frmStudentHome2.resources
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.csproj.GenerateResource.Cache
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.exe
+C:\Users\equad525\Source\Repos\340project\school\obj\Debug\school.pdb

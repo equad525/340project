@@ -10,7 +10,7 @@ namespace CourseProject.PD
     {
         public string Term { get; set; }
         public short Year { get; set; }
-        public short Crn { get; set; }
+        public int Crn { get; set; }
         public string Cprefix { get; set; }
         public short Cno { get; set; }
         public short Section { get; set; }
@@ -23,7 +23,7 @@ namespace CourseProject.PD
         public char Auth { get; set; }
 
         public Sections() { }
-        public Sections(string term, short year, short crn, string cprefix, short cno, short section,
+        public Sections(string term, short year, int crn, string cprefix, short cno, short section,
             string days, double startTime, double endTime, string room, short cap, string instructor, char auth) 
         {
             this.Term = term;

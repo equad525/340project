@@ -51,10 +51,11 @@ namespace CourseProject.UI
                 else if (trylogin.Equals("Student"))
                 {
 
-                    List<Students> students = Main.Retrieve(txtUsername.Text);                    
+                    //List<Students> students = Main.Retrieve(txtUsername.Text);                    
                     this.Hide();
                     //string stateStatus = "INSTATE";
-                    frmStudentHome2 rowSearch = new frmStudentHome2(students[0]);
+                    frmStudentHome2 studentID = new frmStudentHome2(txtUsername.Text);
+                    //frmStudentHome2 rowSearch = new frmStudentHome2(students[0]);
                     //if (students[0].InState == "Y")
                     //{
                     //    stateStatus = "INSTATE";
@@ -69,6 +70,8 @@ namespace CourseProject.UI
                     //studentForm.varFeeDataGridView.DataSource = dataRows.CopyToDataTable();
                     //studentForm.Show();
                     //studentForm.Closed += (s, args) => this.Show();
+                    studentID.Show();
+                    studentID.Closed += (s, args) => this.Show();
                     clearLoginForm();
                 }
                 else
