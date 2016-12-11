@@ -678,6 +678,8 @@ namespace Data
             private static string GetQueryValue(PropertyInfo prop, object objectToInsert)
             {
                 object value = prop.GetValue(objectToInsert);
+                if (value == null)
+                    return "NULL";
                 return value.GetType() == typeof(string) ? $"'{value}'" : value.ToString();
             }
 

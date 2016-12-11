@@ -31,13 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.cboRegCrn = new System.Windows.Forms.ComboBox();
+            this.sectionsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.enquadeDataSet = new school.enquadeDataSet();
             this.btnRegister = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.feeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.feeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fixedFeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.enquadeDataSet = new school.enquadeDataSet();
             this.fixedFeeTableAdapter = new school.enquadeDataSetTableAdapters.fixedFeeTableAdapter();
             this.label3 = new System.Windows.Forms.Label();
             this.varFeeDataGridView = new System.Windows.Forms.DataGridView();
@@ -84,16 +85,18 @@
             this.capDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sectionsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cboStudent = new System.Windows.Forms.ComboBox();
             this.enrollsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.enrollsTableAdapter = new school.enquadeDataSetTableAdapters.enrollsTableAdapter();
             this.variableFeeRateTableAdapter = new school.enquadeDataSetTableAdapters.variableFeeRateTableAdapter();
+            this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentsTableAdapter = new school.enquadeDataSetTableAdapters.studentsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fixedFeeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.varFeeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.variableFeeRateBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogDataGridView)).BeginInit();
@@ -101,8 +104,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.enrollmentsDdataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enrollsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enrollsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -123,6 +126,17 @@
             this.cboRegCrn.Name = "cboRegCrn";
             this.cboRegCrn.Size = new System.Drawing.Size(149, 21);
             this.cboRegCrn.TabIndex = 1;
+            this.cboRegCrn.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cboRegCrn_Format);
+            // 
+            // sectionsBindingSource1
+            // 
+            this.sectionsBindingSource1.DataMember = "sections";
+            this.sectionsBindingSource1.DataSource = this.enquadeDataSet;
+            // 
+            // enquadeDataSet
+            // 
+            this.enquadeDataSet.DataSetName = "enquadeDataSet";
+            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnRegister
             // 
@@ -177,11 +191,6 @@
             // 
             this.fixedFeeBindingSource.DataMember = "fixedFee";
             this.fixedFeeBindingSource.DataSource = this.enquadeDataSet;
-            // 
-            // enquadeDataSet
-            // 
-            this.enquadeDataSet.DataSetName = "enquadeDataSet";
-            this.enquadeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // fixedFeeTableAdapter
             // 
@@ -563,11 +572,6 @@
             this.authDataGridViewTextBoxColumn1.Name = "authDataGridViewTextBoxColumn1";
             this.authDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // sectionsBindingSource1
-            // 
-            this.sectionsBindingSource1.DataMember = "sections";
-            this.sectionsBindingSource1.DataSource = this.enquadeDataSet;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -588,7 +592,7 @@
             // 
             // cboStudent
             // 
-            this.cboStudent.DataSource = this.enrollsBindingSource;
+            this.cboStudent.DataSource = this.studentsBindingSource;
             this.cboStudent.DisplayMember = "sid";
             this.cboStudent.FormattingEnabled = true;
             this.cboStudent.Location = new System.Drawing.Point(16, 27);
@@ -608,6 +612,15 @@
             // variableFeeRateTableAdapter
             // 
             this.variableFeeRateTableAdapter.ClearBeforeFill = true;
+            // 
+            // studentsBindingSource
+            // 
+            this.studentsBindingSource.DataMember = "students";
+            this.studentsBindingSource.DataSource = this.enquadeDataSet;
+            // 
+            // studentsTableAdapter
+            // 
+            this.studentsTableAdapter.ClearBeforeFill = true;
             // 
             // frmStudentHome2
             // 
@@ -632,9 +645,10 @@
             this.Name = "frmStudentHome2";
             this.Text = "StudentHome2";
             this.Load += new System.EventHandler(this.frmStudentHome2_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fixedFeeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enquadeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.varFeeDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.variableFeeRateBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogDataGridView)).EndInit();
@@ -642,8 +656,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.enrollmentsDdataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enrollsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enrollsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -713,5 +727,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn instructorDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn authDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource sectionsBindingSource1;
+        private System.Windows.Forms.BindingSource studentsBindingSource;
+        private enquadeDataSetTableAdapters.studentsTableAdapter studentsTableAdapter;
     }
 }

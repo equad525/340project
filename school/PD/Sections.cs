@@ -15,16 +15,16 @@ namespace CourseProject.PD
         public short Cno { get; set; }
         public short Section { get; set; }
         public string Days { get; set; }
-        public double StartTime { get; set; }
-        public double EndTime { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
         public string Room { get; set; }
         public short Cap { get; set; }
         public string Instructor { get; set; }
-        public char Auth { get; set; }
+        public string Auth { get; set; }
 
         public Sections() { }
         public Sections(string term, short year, int crn, string cprefix, short cno, short section,
-            string days, double startTime, double endTime, string room, short cap, string instructor, char auth) 
+            string days, string startTime, string endTime, string room, short cap, string instructor, string auth) 
         {
             this.Term = term;
             this.Year = year;
